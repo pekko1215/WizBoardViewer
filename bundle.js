@@ -2376,7 +2376,7 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<sidemenu expr32></sidemenu><content expr33></content>', [{
+    return template('<sidemenu expr931></sidemenu><content expr932></content>', [{
       'type': bindingTypes.TAG,
       'getComponent': getComponent,
       'evaluate': function (scope) {
@@ -2390,8 +2390,8 @@ var _default = {
           return scope.props.Cups;
         }
       }],
-      'redundantAttribute': 'expr32',
-      'selector': '[expr32]'
+      'redundantAttribute': 'expr931',
+      'selector': '[expr931]'
     }, {
       'type': bindingTypes.TAG,
       'getComponent': getComponent,
@@ -2406,8 +2406,8 @@ var _default = {
           return scope.props.Cups;
         }
       }],
-      'redundantAttribute': 'expr33',
-      'selector': '[expr33]'
+      'redundantAttribute': 'expr932',
+      'selector': '[expr932]'
     }]);
   },
   'name': 'app'
@@ -2473,13 +2473,13 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<rankers expr34></rankers>', [{
+    return template('<rankers expr933></rankers>', [{
       'type': bindingTypes.IF,
       'evaluate': function (scope) {
         return scope.state.type === 'rankers';
       },
-      'redundantAttribute': 'expr34',
-      'selector': '[expr34]',
+      'redundantAttribute': 'expr933',
+      'selector': '[expr933]',
       'template': template(null, [{
         'type': bindingTypes.TAG,
         'getComponent': getComponent,
@@ -2508,12 +2508,29 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _default = {
-  'css': `rankers .cup-title,[is="rankers"] .cup-title{ font-family: sans-serif; font-size:32pt; } rankers hr,[is="rankers"] hr{ background-color:gray; }`,
-  'exports': null,
+  'css': `rankers .cup-title,[is="rankers"] .cup-title{ font-family: sans-serif; font-size: 32pt; } rankers hr,[is="rankers"] hr{ background-color: gray; } rankers .search-box,[is="rankers"] .search-box{ width: 100%; padding-left: auto; padding-right: auto; padding-top : 25px; padding-bottom : 25px; font-size: 25pt; box-sizing: border-box; } rankers .search-box>.inline-input,[is="rankers"] .search-box>.inline-input{ background-color: #ccc; box-sizing: border-box; border-radius: 15px; display: table; width: 100%; padding:5px; max-width: 500px; } rankers .search-box > .inline-input > i,[is="rankers"] .search-box > .inline-input > i{ display: table-cell; width:46px; font-size:28pt; vertical-align: middle; color:#eee; padding-left: 15px; } rankers .search-box > .inline-input > .input,[is="rankers"] .search-box > .inline-input > .input{ display: table-cell; width:auto; } rankers .toggle-switch,[is="rankers"] .toggle-switch{ max-width:600px; width:100%; border:solid 1px #ccc; border-radius: 5px; overflow: hidden; box-sizing: border-box; display: table; } rankers .toggle-button,[is="rankers"] .toggle-button{ background-color:white; display: inline-block; width:20%; box-sizing: border-box; display: table-cell; text-align: center; vertical-align: middle; border-right: solid 1px #ccc; cursor: pointer; height:50px; } rankers .toggle-button:last-child,[is="rankers"] .toggle-button:last-child{ border-right: solid 0px; width:auto; } rankers .toggle-button:hover,[is="rankers"] .toggle-button:hover{ background-color:#eeeeee; } rankers .toggle-button.active,[is="rankers"] .toggle-button.active{ background-color:#eee; font-weight: bold; }`,
+  'exports': {
+    async onMounted(props, state) {
+      this.update();
+    },
+
+    async onBeforeUpdate(props, state) {
+      let {
+        cup
+      } = props;
+      if (state.cup === cup) return;
+      state.cup = cup;
+      state.board = null;
+      state.board = await cup.getBoardInfomationLast();
+      state.board.teams[0].isActive = true;
+      this.update();
+    }
+
+  },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<div expr39 class="cup-title"><!----></div><hr/><div class="search-box"><div class="input" contenteditable></div></div>', [{
-      'redundantAttribute': 'expr39',
-      'selector': '[expr39]',
+    return template('<div expr938 class="cup-title"><!----></div><hr/><div class="search-box"><div class="inline-input"><i class="fas fa-search"></i><div class="input" contenteditable></div></div></div><hr/><div expr939 class="toggle-switch"></div>', [{
+      'redundantAttribute': 'expr938',
+      'selector': '[expr938]',
       'expressions': [{
         'type': expressionTypes.TEXT,
         'childNodeIndex': 0,
@@ -2521,6 +2538,46 @@ var _default = {
           return scope.props.cup.title;
         }
       }]
+    }, {
+      'type': bindingTypes.IF,
+      'evaluate': function (scope) {
+        return scope.state.board;
+      },
+      'redundantAttribute': 'expr939',
+      'selector': '[expr939]',
+      'template': template('<div expr940></div>', [{
+        'type': bindingTypes.EACH,
+        'getKey': null,
+        'condition': null,
+        'template': template('<!---->', [{
+          'expressions': [{
+            'type': expressionTypes.TEXT,
+            'childNodeIndex': 0,
+            'evaluate': function (scope) {
+              return ['\r\n            ', scope.team.name.replace(/チーム/, ''), '\r\n        '].join('');
+            }
+          }, {
+            'type': expressionTypes.ATTRIBUTE,
+            'name': 'class',
+            'evaluate': function (scope) {
+              return ['toggle-button ', scope.team.isActive ? 'active' : ''].join('');
+            }
+          }, {
+            'type': expressionTypes.ATTRIBUTE,
+            'name': 'teamid',
+            'evaluate': function (scope) {
+              return scope.team.id;
+            }
+          }]
+        }]),
+        'redundantAttribute': 'expr940',
+        'selector': '[expr940]',
+        'itemName': 'team',
+        'indexName': null,
+        'evaluate': function (scope) {
+          return scope.state.board.teams;
+        }
+      }])
     }]);
   },
   'name': 'rankers'
@@ -2548,9 +2605,9 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<div class="box gray"><a href="/"><img src="img/logo.png" class="logo"/></a></div><div class="box"><br/><a expr35><button expr36 id="nowCupButton" class="button"><i class="fas fa-running"></i>\r\n            現在開催中の魔導杯へ</button><br/></a><br/></div><div class="box gray"><h3><i class="fas fa-trophy"></i> 魔導杯一覧</h3><div id="cupList"><a expr37 class="cup"></a></div><br/></div>', [{
-      'redundantAttribute': 'expr35',
-      'selector': '[expr35]',
+    return template('<div class="box gray"><a href="/"><img src="img/logo.png" class="logo"/></a></div><div class="box"><br/><a expr934><button expr935 id="nowCupButton" class="button"><i class="fas fa-running"></i>\r\n            現在開催中の魔導杯へ</button><br/></a><br/></div><div class="box gray"><h3><i class="fas fa-trophy"></i> 魔導杯一覧</h3><div id="cupList"><a expr936 class="cup"></a></div><br/></div>', [{
+      'redundantAttribute': 'expr934',
+      'selector': '[expr934]',
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'href',
@@ -2559,8 +2616,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr36',
-      'selector': '[expr36]',
+      'redundantAttribute': 'expr935',
+      'selector': '[expr935]',
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'disabled',
@@ -2572,7 +2629,7 @@ var _default = {
       'type': bindingTypes.EACH,
       'getKey': null,
       'condition': null,
-      'template': template('<div expr38><!----></div>', [{
+      'template': template('<div expr937><!----></div>', [{
         'expressions': [{
           'type': expressionTypes.ATTRIBUTE,
           'name': 'href',
@@ -2581,8 +2638,8 @@ var _default = {
           }
         }]
       }, {
-        'redundantAttribute': 'expr38',
-        'selector': '[expr38]',
+        'redundantAttribute': 'expr937',
+        'selector': '[expr937]',
         'expressions': [{
           'type': expressionTypes.TEXT,
           'childNodeIndex': 0,
@@ -2591,8 +2648,8 @@ var _default = {
           }
         }]
       }]),
-      'redundantAttribute': 'expr37',
-      'selector': '[expr37]',
+      'redundantAttribute': 'expr936',
+      'selector': '[expr936]',
       'itemName': 'cup',
       'indexName': null,
       'evaluate': function (scope) {
