@@ -1,0 +1,17 @@
+<app>
+    <sidemenu Cups={ props.Cups }></sidemenu>
+    <content Cups={ props.Cups }></content>
+    <script>
+        import Content from './content.riot';
+        import Sidemenu from './sidemenu.riot';
+
+        export default {
+            components:{Content,Sidemenu},
+            async onMounted(props){
+                const {Cups} = props;
+                let {cups,now_cup} = Cups;
+
+            }
+        }
+    </script>
+</app>

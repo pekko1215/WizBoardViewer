@@ -1,0 +1,99 @@
+<sidemenu>
+    <style scoped>
+        :host {
+            width: 300px;
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: absolute;
+            background-color: #33343a;
+            color: white;
+            text-align: center;
+        }
+
+        .logo {
+            width: 80%;
+        }
+
+        .box {
+            width: 100%;
+            border-bottom: solid 1px #2c2d31;
+            padding-top: 3px;
+        }
+
+        .cup {
+            text-align: left;
+            color: gray;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-top: 3px;
+            box-sizing: border-box;
+        }
+
+        .cup:hover {
+            color: white;
+        }
+
+        .cup.active {
+            color:white;
+            font-weight: bold;
+        }
+
+
+        .gray {
+            background-color: #363841;
+        }
+
+        .button {
+            padding: 18px;
+            padding-left: 24px;
+            padding-right: 24px;
+            background-color: #2d81d7;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            font-size: 13pt;
+            cursor: pointer;
+        }
+        .button:disabled{
+            cursor: default;
+            background-color: #ccc;
+        }
+    </style>
+    <div class="box gray">
+        <a href="/">
+            <img src="img/logo.png" class="logo">
+        </a>
+    </div>
+    <div class="box">
+        <br>
+        <a href={props.Cups.now_cup ? '#cup/' + props.Cups.now_cup.id : '#'}>
+        <button id="nowCupButton" class="button" disabled={props.Cups.now_cup===null}><i class="fas fa-running"></i>
+            現在開催中の魔導杯へ</button>
+            
+        <br>
+        </a>
+        <br>
+    </div>
+    <div class="box gray">
+        <h3><i class="fas fa-trophy"></i> 魔導杯一覧</h3>
+        <div id="cupList">
+            <a href="#cup/{cup.id}" each={cup in props.Cups.cups} class="cup">
+                <div>{cup.title}</div>
+            </a>
+        </div>
+        <br>
+    </div>
+    <script>
+        export default {
+            async onMounted(props) {
+                const { Cups } = props;
+                let { cups, now_cup } = Cups;
+            }
+        }
+    </script>
+</sidemenu>

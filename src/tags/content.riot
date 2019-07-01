@@ -1,0 +1,49 @@
+<content>
+    <style scoped>
+        :host {
+            position: absolute;
+            left: 300px;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: auto;
+            height: auto;
+            padding:64px;
+            padding-bottom: 16px;
+        }
+    </style>
+    <script>
+        import * as riot from 'riot';
+        import Rankers from './rankers.riot';
+        export default {
+            components:{Rankers},
+            async onMounted(props) {
+                const { Cups } = props;
+                let { cups, now_cup } = Cups;
+                
+                let redraw = () => {
+                    let hashData = parseHash();
+                    console.log(hashData)
+                    switch (hashData.type) {
+                        case 'cup':
+                            this.state.type = 'rankers';
+                            this.state.currentCup = cups.find(data=>data.id == hashData.arg[0]);
+                            this.update();
+                            break
+                    }
+                }
+                window.addEventListener('hashchange', redraw, false)
+                redraw();
+            }
+        }
+
+        function parseHash() {
+            let arr = location.hash.slice(1).split('/');
+            let ret = { type: arr.shift() };
+            ret.arg = arr;
+            return ret;
+        }
+
+    </script>
+    <rankers if={state.type==='rankers'} cup={state.currentCup}></rankers>
+</content>
