@@ -31,8 +31,8 @@ gulp.task('browserify', () => {
         .pipe(gulp.dest('./'))
 })
 
-gulp.task('watch',['browserify'],()=>{
-    gulp.watch('./src/tags/*.riot', ['browserify']);
-    gulp.watch('./src/*.js', ['browserify']);
-})
+gulp.task('watch',gulp.series('browserify',()=>{
+    gulp.watch('./src/tags/*.riot', gulp.task('browserify'));
+    gulp.watch('./src/*.js', gulp.task('browserify'));
+}));
 

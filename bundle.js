@@ -2376,7 +2376,7 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<sidemenu expr931></sidemenu><content expr932></content>', [{
+    return template('<sidemenu expr10></sidemenu><content expr11></content>', [{
       'type': bindingTypes.TAG,
       'getComponent': getComponent,
       'evaluate': function (scope) {
@@ -2390,8 +2390,8 @@ var _default = {
           return scope.props.Cups;
         }
       }],
-      'redundantAttribute': 'expr931',
-      'selector': '[expr931]'
+      'redundantAttribute': 'expr10',
+      'selector': '[expr10]'
     }, {
       'type': bindingTypes.TAG,
       'getComponent': getComponent,
@@ -2406,8 +2406,8 @@ var _default = {
           return scope.props.Cups;
         }
       }],
-      'redundantAttribute': 'expr932',
-      'selector': '[expr932]'
+      'redundantAttribute': 'expr11',
+      'selector': '[expr11]'
     }]);
   },
   'name': 'app'
@@ -2473,13 +2473,13 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<rankers expr933></rankers>', [{
+    return template('<rankers expr12></rankers>', [{
       'type': bindingTypes.IF,
       'evaluate': function (scope) {
         return scope.state.type === 'rankers';
       },
-      'redundantAttribute': 'expr933',
-      'selector': '[expr933]',
+      'redundantAttribute': 'expr12',
+      'selector': '[expr12]',
       'template': template(null, [{
         'type': bindingTypes.TAG,
         'getComponent': getComponent,
@@ -2528,9 +2528,9 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<div expr938 class="cup-title"><!----></div><hr/><div class="search-box"><div class="inline-input"><i class="fas fa-search"></i><div class="input" contenteditable></div></div></div><hr/><div expr939 class="toggle-switch"></div>', [{
-      'redundantAttribute': 'expr938',
-      'selector': '[expr938]',
+    return template('<div expr17 class="cup-title"><!----></div><hr/><div class="search-box"><div class="inline-input"><i class="fas fa-search"></i><div class="input" contenteditable></div></div></div><hr/><div expr18 class="toggle-switch"></div>', [{
+      'redundantAttribute': 'expr17',
+      'selector': '[expr17]',
       'expressions': [{
         'type': expressionTypes.TEXT,
         'childNodeIndex': 0,
@@ -2543,9 +2543,9 @@ var _default = {
       'evaluate': function (scope) {
         return scope.state.board;
       },
-      'redundantAttribute': 'expr939',
-      'selector': '[expr939]',
-      'template': template('<div expr940></div>', [{
+      'redundantAttribute': 'expr18',
+      'selector': '[expr18]',
+      'template': template('<div expr19></div>', [{
         'type': bindingTypes.EACH,
         'getKey': null,
         'condition': null,
@@ -2570,8 +2570,8 @@ var _default = {
             }
           }]
         }]),
-        'redundantAttribute': 'expr940',
-        'selector': '[expr940]',
+        'redundantAttribute': 'expr19',
+        'selector': '[expr19]',
         'itemName': 'team',
         'indexName': null,
         'evaluate': function (scope) {
@@ -2605,9 +2605,9 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<div class="box gray"><a href="/"><img src="img/logo.png" class="logo"/></a></div><div class="box"><br/><a expr934><button expr935 id="nowCupButton" class="button"><i class="fas fa-running"></i>\r\n            現在開催中の魔導杯へ</button><br/></a><br/></div><div class="box gray"><h3><i class="fas fa-trophy"></i> 魔導杯一覧</h3><div id="cupList"><a expr936 class="cup"></a></div><br/></div>', [{
-      'redundantAttribute': 'expr934',
-      'selector': '[expr934]',
+    return template('<div class="box gray"><a href="/"><img src="img/logo.png" class="logo"/></a></div><div class="box"><br/><a expr13><button expr14 id="nowCupButton" class="button"><i class="fas fa-running"></i>\r\n            現在開催中の魔導杯へ</button><br/></a><br/></div><div class="box gray"><h3><i class="fas fa-trophy"></i> 魔導杯一覧</h3><div id="cupList"><a expr15 class="cup"></a></div><br/></div>', [{
+      'redundantAttribute': 'expr13',
+      'selector': '[expr13]',
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'href',
@@ -2616,8 +2616,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr935',
-      'selector': '[expr935]',
+      'redundantAttribute': 'expr14',
+      'selector': '[expr14]',
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'disabled',
@@ -2629,7 +2629,7 @@ var _default = {
       'type': bindingTypes.EACH,
       'getKey': null,
       'condition': null,
-      'template': template('<div expr937><!----></div>', [{
+      'template': template('<div expr16><!----></div>', [{
         'expressions': [{
           'type': expressionTypes.ATTRIBUTE,
           'name': 'href',
@@ -2638,8 +2638,8 @@ var _default = {
           }
         }]
       }, {
-        'redundantAttribute': 'expr937',
-        'selector': '[expr937]',
+        'redundantAttribute': 'expr16',
+        'selector': '[expr16]',
         'expressions': [{
           'type': expressionTypes.TEXT,
           'childNodeIndex': 0,
@@ -2648,8 +2648,8 @@ var _default = {
           }
         }]
       }]),
-      'redundantAttribute': 'expr936',
-      'selector': '[expr936]',
+      'redundantAttribute': 'expr15',
+      'selector': '[expr15]',
       'itemName': 'cup',
       'indexName': null,
       'evaluate': function (scope) {
