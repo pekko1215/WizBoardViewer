@@ -1,5 +1,16 @@
 <rankers>
-    <div class="loadding {state.board ? 'hidden' : ''}"></div>
+    <div class="loadding {state.board ? 'hidden' : ''}">
+        <div class="line-spin-fade-loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
     <div class="cup-title">{props.cup.title}</div>
     <hr>
     <div class="search-box">
@@ -10,12 +21,14 @@
     </div>
     <hr>
     <div if={state.board} class="toggle-switch">
-        <div onclick={toggleTeam} class="toggle-button {team.isActive ? 'active' : ''}" each={team in state.board.teams} teamid="{team.id}">
+        <div onclick={toggleTeam} class="toggle-button {team.isActive ? 'active' : ''}" each={team in state.board.teams}
+            teamid="{team.id}">
             {team.name.replace(/チーム/,'')}
         </div>
     </div>
+    <br>
     <div if={state.board} class="board-datas">
-        <ranker data={ranker} each={ranker in state.board.currentTeam.ranks}></ranker>
+        <ranker data={ranker} each={ranker in state.board.currentTeam.ranks.slice(0,50)}></ranker>
     </div>
     <style scoped>
         .cup-title {
@@ -31,9 +44,9 @@
             width: 100%;
             padding-left: auto;
             padding-right: auto;
-            padding-top : 25px;
-            padding-bottom : 25px;
-            font-size: 25pt;
+            padding-top: 25px;
+            padding-bottom: 25px;
+            font-size: 20pt;
             box-sizing: border-box;
         }
 
@@ -43,26 +56,28 @@
             border-radius: 15px;
             display: table;
             width: 100%;
-            padding:5px;
+            padding: 5px;
             max-width: 500px;
         }
-        .search-box > .inline-input > i {
+
+        .search-box>.inline-input>i {
             display: table-cell;
-            width:46px;
-            font-size:28pt;
+            width: 46px;
+            font-size: 28pt;
             vertical-align: middle;
-            color:#eee;
+            color: #eee;
             padding-left: 15px;
         }
-        .search-box > .inline-input > .input {
+
+        .search-box>.inline-input>.input {
             display: table-cell;
-            width:auto;
+            width: auto;
         }
 
         .toggle-switch {
-            max-width:600px;
-            width:100%;
-            border:solid 1px #ccc;
+            max-width: 600px;
+            width: 100%;
+            border: solid 1px #ccc;
             border-radius: 5px;
             overflow: hidden;
             box-sizing: border-box;
@@ -70,76 +85,97 @@
         }
 
         .toggle-button {
-            background-color:white;
+            background-color: white;
             display: inline-block;
-            width:20%;
+            width: 20%;
             box-sizing: border-box;
             display: table-cell;
             text-align: center;
             vertical-align: middle;
             border-right: solid 1px #ccc;
             cursor: pointer;
-            height:50px;
+            height: 50px;
         }
 
-        .toggle-button:last-child{
+        .toggle-button:last-child {
             border-right: solid 0px;
-            width:auto;
+            width: auto;
         }
 
         .toggle-button:hover {
-            background-color:#eeeeee;
+            background-color: #eeeeee;
         }
 
         .toggle-button.active {
-            background-color:#eee;
+            background-color: #eee;
             font-weight: bold;
         }
+
         .loadding {
-            width:100%;
-            height:100%;
-            position:absolute;
-            background:white;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: white;
             left: 0;
             top: 0;
             opacity: 1;
             transition: opacity 0s;
             pointer-events: auto;
         }
+
         .loadding.hidden {
             opacity: 0;
             transition: opacity 0.3s;
             pointer-events: none;
         }
+
+        .line-spin-fade-loader {
+            width: 0;
+            height: 0;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto auto;
+            transform: scale(2);
+        }
+
+        .line-spin-fade-loader>div {
+            background: black;
+        }
+
+        .board-datas {
+            column-count: 5;
+        }
     </style>
     <script>
         import Ranker from './ranker.riot';
         export default {
-            components:{Ranker},
-            async onMounted(props,state){
+            components: { Ranker },
+            async onMounted(props, state) {
                 this.update();
             },
-            async onBeforeUpdate(props,state){
-                let {cup} = props;
-                if(state.cup === cup) return;
+            async onBeforeUpdate(props, state) {
+                let { cup } = props;
+                if (state.cup === cup) return;
                 state.cup = cup;
                 state.board = null;
                 state.board = await cup.getBoardInfomationLast();
                 state.board.teams[0].isActive = true;
                 state.board.currentTeam = state.board.teams[0];
 
-
                 console.log(state.board.currentTeam);
                 this.update();
             },
-            toggleTeam(e){
-                let {props,state} = this;
-                let {target} = e;
-                if(target.classList.contains('active')) return;
+            toggleTeam(e) {
+                let { props, state } = this;
+                let { target } = e;
+                if (target.classList.contains('active')) return;
                 let teamid = target.attributes.teamid.value;
                 state.board.currentTeam.isActive = false;
 
-                state.board.currentTeam = state.board.teams.find(t=>t.id == Number(teamid));
+                state.board.currentTeam = state.board.teams.find(t => t.id == Number(teamid));
                 state.board.currentTeam.isActive = true;
 
                 this.update();
