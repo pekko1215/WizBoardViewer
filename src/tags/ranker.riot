@@ -1,11 +1,13 @@
 <ranker>
-    <img class="icon" src="{`https://i-quiz-colopl-jp.akamaized.net/img/card/small/${props.data.leaderCardImg}.png`}">
+    <div class="icon-wrapper">
+        <img class="icon" src="{`https://i-quiz-colopl-jp.akamaized.net/img/card/small/${props.data.leaderCardImg}.png`}">
+        <div class="favorite">★</div>
+    </div>
     <div class="rank">{props.data.rankOrder}</div>
     <div class="name">{props.data.name}</div>
     <div class="point">{props.data.pvnEventPoint}Pt</div>
-    <div class="favorite">★</div>
-    <style>
-        :host {
+    <style scoped>
+         :host {
             position: relative;
             width: 256px;
             height: 64px;
@@ -17,18 +19,25 @@
             box-sizing: border-box;
             background-color: white;
         }
-
+        
+        .icon-wrapper {
+            width: 64px;
+            height: 64px;
+            position: absolute;
+            left: -32px;
+        }
+        
         .icon {
             width: 64px;
             border-radius: 50%;
             border-radius: 5px 0px 0px 5px;
             position: absolute;
-            left: -32px;
             top: -1px;
             border: solid 1px #aaaaaa;
             box-sizing: border-box;
+            left: 0;
         }
-
+        
         .rank {
             position: absolute;
             left: 36px;
@@ -40,7 +49,7 @@
             text-shadow: 1px 1px 3px #525252;
             text-align: center;
         }
-
+        
         .name {
             position: absolute;
             left: 74px;
@@ -48,7 +57,7 @@
             top: 3px;
             text-align: center;
         }
-
+        
         .point {
             position: absolute;
             left: 74px;
@@ -56,5 +65,51 @@
             top: 30px;
             text-align: center;
         }
+        
+        .favorite {
+            width: 21px;
+            height: 21px;
+            border-radius: 0 0 0 6px;
+            border: solid 1px #525252;
+            box-sizing: border-box;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: white;
+            line-height: 21px;
+            text-align: center;
+            font-size: 18px;
+        }
+        
+        .icon-wrapper {
+            color: #ccc;
+        }
+        
+        .icon-wrapper:hover {
+            color: goldenrod;
+        }
+        
+        .icon-wrapper.favorited .favorite {
+            animation: star;
+        }
+        
+        @keyframes star {
+            0% {
+                font-size: 18px;
+            }
+            50% {
+                font-size: 22px;
+            }
+            100% {
+                font-size: 18px;
+            }
+        }
     </style>
+    <script>
+        export default {
+            onMounted(props, state) {
+                console.log(this.$('.icon-wrapper'));
+            }
+        }
+    </script>
 </ranker>
