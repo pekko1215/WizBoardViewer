@@ -2387,7 +2387,7 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<sidemenu expr221></sidemenu><content expr222></content>', [{
+    return template('<sidemenu expr883></sidemenu><content expr884></content>', [{
       'type': bindingTypes.TAG,
       'getComponent': getComponent,
       'evaluate': function (scope) {
@@ -2407,8 +2407,8 @@ var _default = {
           return scope.props.FavoriteList;
         }
       }],
-      'redundantAttribute': 'expr221',
-      'selector': '[expr221]'
+      'redundantAttribute': 'expr883',
+      'selector': '[expr883]'
     }, {
       'type': bindingTypes.TAG,
       'getComponent': getComponent,
@@ -2429,14 +2429,14 @@ var _default = {
           return scope.props.FavoriteList;
         }
       }],
-      'redundantAttribute': 'expr222',
-      'selector': '[expr222]'
+      'redundantAttribute': 'expr884',
+      'selector': '[expr884]'
     }]);
   },
   'name': 'app'
 };
 exports.default = _default;
-},{"./content.riot":4,"./sidemenu.riot":7}],4:[function(require,module,exports){
+},{"./content.riot":4,"./sidemenu.riot":8}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2447,6 +2447,8 @@ exports.default = void 0;
 var riot = _interopRequireWildcard(require("riot"));
 
 var _rankers = _interopRequireDefault(require("./rankers.riot"));
+
+var _mainpage = _interopRequireDefault(require("./mainpage.riot"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2465,7 +2467,8 @@ var _default = {
   'css': `content,[is="content"]{ position: absolute; left: 300px; right: 0; top: 0; bottom: 0; width: auto; height: auto; padding: 64px; padding-bottom: 16px; overflow-y: scroll; }`,
   'exports': {
     components: {
-      Rankers: _rankers.default
+      Rankers: _rankers.default,
+      Mainpage: _mainpage.default
     },
 
     async onMounted(props) {
@@ -2479,11 +2482,17 @@ var _default = {
 
       let redraw = () => {
         let hashData = parseHash();
+        console.log(hashData);
 
         switch (hashData.type) {
           case 'cup':
             this.state.type = 'rankers';
             this.state.currentCup = cups.find(data => data.id == hashData.arg[0]);
+            this.update();
+            break;
+
+          default:
+            this.state.type = 'home';
             this.update();
             break;
         }
@@ -2495,13 +2504,29 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<rankers expr223></rankers>', [{
+    return template('<mainpage expr885></mainpage><rankers expr886></rankers>', [{
+      'type': bindingTypes.IF,
+      'evaluate': function (scope) {
+        return scope.state.type === 'home';
+      },
+      'redundantAttribute': 'expr885',
+      'selector': '[expr885]',
+      'template': template(null, [{
+        'type': bindingTypes.TAG,
+        'getComponent': getComponent,
+        'evaluate': function (scope) {
+          return 'mainpage';
+        },
+        'slots': [],
+        'attributes': []
+      }])
+    }, {
       'type': bindingTypes.IF,
       'evaluate': function (scope) {
         return scope.state.type === 'rankers';
       },
-      'redundantAttribute': 'expr223',
-      'selector': '[expr223]',
+      'redundantAttribute': 'expr886',
+      'selector': '[expr886]',
       'template': template(null, [{
         'type': bindingTypes.TAG,
         'getComponent': getComponent,
@@ -2528,7 +2553,7 @@ var _default = {
   'name': 'content'
 };
 exports.default = _default;
-},{"./rankers.riot":6,"riot":1}],5:[function(require,module,exports){
+},{"./mainpage.riot":5,"./rankers.riot":7,"riot":1}],5:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2536,7 +2561,23 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _default = {
-  'css': `ranker,[is="ranker"]{ position: relative; width: 256px; height: 64px; border: solid 1px #aaaaaa; border-radius: 0px 5px 5px 0px; display: inline-block; margin: 5px; margin-left: 32px; box-sizing: border-box; background-color: white; } ranker .icon-wrapper,[is="ranker"] .icon-wrapper{ width: 64px; height: 64px; position: absolute; left: -32px; } ranker .icon,[is="ranker"] .icon{ width: 64px; border-radius: 50%; border-radius: 5px 0px 0px 5px; position: absolute; top: -1px; border: solid 1px #aaaaaa; box-sizing: border-box; left: 0; } ranker .rank,[is="ranker"] .rank{ position: absolute; left: 36px; height: 100%; width: 38px; font-size: 27pt; line-height: 62px; font-family: 'Century Gothic'; text-shadow: 1px 1px 3px #525252; text-align: center; } ranker .name,[is="ranker"] .name{ position: absolute; left: 74px; width: 188px; top: 3px; text-align: center; } ranker .point,[is="ranker"] .point{ position: absolute; left: 74px; width: 188px; top: 30px; text-align: center; } ranker .favorite,[is="ranker"] .favorite{ width: 21px; height: 21px; border-radius: 0 0 0 6px; border: solid 1px #525252; box-sizing: border-box; position: absolute; top: 0; right: 0; background-color: white; line-height: 21px; text-align: center; font-size: 18px; } ranker .icon-wrapper,[is="ranker"] .icon-wrapper{ color: #ccc; } ranker .icon-wrapper:hover,[is="ranker"] .icon-wrapper:hover{ color: goldenrod; } ranker .icon-wrapper.favorited .favorite,[is="ranker"] .icon-wrapper.favorited .favorite{ animation: star; } @keyframes star { 0% { font-size: 18px; } 50% { font-size: 22px; } 100% { font-size: 18px; } }`,
+  'css': null,
+  'exports': null,
+  'template': function (template, expressionTypes, bindingTypes, getComponent) {
+    return template('<h3>WizBoardViewer</h3><hr/><p>過去の魔導杯のボード情報を参照できます。</p><p>左のメニューから魔道杯を選択してください。</p>', []);
+  },
+  'name': 'mainpage'
+};
+exports.default = _default;
+},{}],6:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  'css': `ranker,[is="ranker"]{ position: relative; width: 256px; height: 64px; border: solid 1px #aaaaaa; border-radius: 0px 5px 5px 0px; display: inline-block; margin: 5px; margin-left: 32px; box-sizing: border-box; background-color: white; } ranker.hidden,[is="ranker"].hidden{ display:none; } ranker .icon-wrapper,[is="ranker"] .icon-wrapper{ width: 64px; height: 64px; position: absolute; left: -32px; } ranker .icon,[is="ranker"] .icon{ width: 64px; border-radius: 50%; border-radius: 5px 0px 0px 5px; position: absolute; top: -1px; border: solid 1px #aaaaaa; box-sizing: border-box; left: 0; } ranker .rank,[is="ranker"] .rank{ position: absolute; left: 36px; height: 100%; width: 38px; font-size: 27pt; line-height: 62px; font-family: 'Century Gothic'; text-shadow: 1px 1px 3px #525252; text-align: center; } ranker .name,[is="ranker"] .name{ position: absolute; left: 74px; width: 188px; top: 3px; text-align: center; } ranker .point,[is="ranker"] .point{ position: absolute; left: 74px; width: 188px; top: 30px; text-align: center; } ranker .favorite,[is="ranker"] .favorite{ width: 21px; height: 21px; border-radius: 0 0 0 6px; border: solid 1px #525252; box-sizing: border-box; position: absolute; top: 0; right: 0; background-color: white; line-height: 21px; text-align: center; font-size: 18px; } ranker .icon-wrapper,[is="ranker"] .icon-wrapper{ color: #ccc; } ranker .icon-wrapper:hover,[is="ranker"] .icon-wrapper:hover{ color: goldenrod; } ranker .icon-wrapper.favorited .favorite,[is="ranker"] .icon-wrapper.favorited .favorite{ animation: star; } @keyframes star { 0% { font-size: 18px; } 50% { font-size: 22px; } 100% { font-size: 18px; } }`,
   'exports': {
     onMounted(props, state) {
       console.log(props);
@@ -2545,9 +2586,17 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<div class="icon-wrapper"><img expr234 class="icon"/><div class="favorite">★</div></div><div expr235 class="rank"><!----></div><div expr236 class="name"><!----></div><div expr237 class="point"><!----></div>', [{
-      'redundantAttribute': 'expr234',
-      'selector': '[expr234]',
+    return template('<div class="icon-wrapper"><img expr898 class="icon"/><div class="favorite">★</div></div><div expr899 class="rank"><!----></div><div expr900 class="name"><!----></div><div expr901 class="point"><!----></div>', [{
+      'expressions': [{
+        'type': expressionTypes.ATTRIBUTE,
+        'name': 'class',
+        'evaluate': function (scope) {
+          return scope.props.data.isHidden ? 'hidden' : '';
+        }
+      }]
+    }, {
+      'redundantAttribute': 'expr898',
+      'selector': '[expr898]',
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'src',
@@ -2556,8 +2605,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr235',
-      'selector': '[expr235]',
+      'redundantAttribute': 'expr899',
+      'selector': '[expr899]',
       'expressions': [{
         'type': expressionTypes.TEXT,
         'childNodeIndex': 0,
@@ -2566,8 +2615,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr236',
-      'selector': '[expr236]',
+      'redundantAttribute': 'expr900',
+      'selector': '[expr900]',
       'expressions': [{
         'type': expressionTypes.TEXT,
         'childNodeIndex': 0,
@@ -2576,8 +2625,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr237',
-      'selector': '[expr237]',
+      'redundantAttribute': 'expr901',
+      'selector': '[expr901]',
       'expressions': [{
         'type': expressionTypes.TEXT,
         'childNodeIndex': 0,
@@ -2590,7 +2639,7 @@ var _default = {
   'name': 'ranker'
 };
 exports.default = _default;
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2623,6 +2672,7 @@ var _default = {
       state.board = await cup.getBoardInfomationLast();
       state.board.teams[0].isActive = true;
       state.board.currentTeam = state.board.teams[0];
+      this.updateSearchQuery(this.searchText);
       this.update();
     },
 
@@ -2639,14 +2689,38 @@ var _default = {
       state.board.currentTeam.isActive = false;
       state.board.currentTeam = state.board.teams.find(t => t.id == Number(teamid));
       state.board.currentTeam.isActive = true;
+      this.updateSearchQuery(this.searchText);
       this.update();
+    },
+
+    searchChange(e) {
+      let element = e.target;
+      let query = element.innerText;
+      if (this.searchText === query) return;
+      this.updateSearchQuery(query);
+      this.update();
+    },
+
+    updateSearchQuery(str = '') {
+      this.searchText = str;
+
+      if (str === '') {
+        this.state.searchMode = false;
+      } else {
+        this.state.searchMode = true;
+      }
+
+      console.log(this);
+      this.state.board.currentTeam.ranks.forEach(t => {
+        return t.isHidden = this.state.searchMode && !t.name.includes(str);
+      });
     }
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<div expr228><div class="line-spin-fade-loader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div><div expr229 class="cup-title"><!----></div><hr/><div class="search-box"><div class="inline-input"><i class="fas fa-search"></i><div class="input" contenteditable></div></div></div><hr/><div expr230 class="toggle-switch"></div><br/><div expr232 class="board-datas"></div>', [{
-      'redundantAttribute': 'expr228',
-      'selector': '[expr228]',
+    return template('<div expr891><div class="line-spin-fade-loader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div><div expr892 class="cup-title"><!----></div><hr/><div class="search-box"><div class="inline-input"><i class="fas fa-search"></i><div expr893 class="input" contenteditable></div></div></div><hr/><div expr894 class="toggle-switch"></div><br/><div expr896 class="board-datas"></div>', [{
+      'redundantAttribute': 'expr891',
+      'selector': '[expr891]',
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'class',
@@ -2655,8 +2729,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr229',
-      'selector': '[expr229]',
+      'redundantAttribute': 'expr892',
+      'selector': '[expr892]',
       'expressions': [{
         'type': expressionTypes.TEXT,
         'childNodeIndex': 0,
@@ -2665,13 +2739,23 @@ var _default = {
         }
       }]
     }, {
+      'redundantAttribute': 'expr893',
+      'selector': '[expr893]',
+      'expressions': [{
+        'type': expressionTypes.EVENT,
+        'name': 'onkeyup',
+        'evaluate': function (scope) {
+          return scope.searchChange;
+        }
+      }]
+    }, {
       'type': bindingTypes.IF,
       'evaluate': function (scope) {
         return scope.state.board;
       },
-      'redundantAttribute': 'expr230',
-      'selector': '[expr230]',
-      'template': template('<div expr231></div>', [{
+      'redundantAttribute': 'expr894',
+      'selector': '[expr894]',
+      'template': template('<div expr895></div>', [{
         'type': bindingTypes.EACH,
         'getKey': null,
         'condition': null,
@@ -2702,8 +2786,8 @@ var _default = {
             }
           }]
         }]),
-        'redundantAttribute': 'expr231',
-        'selector': '[expr231]',
+        'redundantAttribute': 'expr895',
+        'selector': '[expr895]',
         'itemName': 'team',
         'indexName': null,
         'evaluate': function (scope) {
@@ -2715,9 +2799,9 @@ var _default = {
       'evaluate': function (scope) {
         return scope.state.board;
       },
-      'redundantAttribute': 'expr232',
-      'selector': '[expr232]',
-      'template': template('<ranker expr233></ranker>', [{
+      'redundantAttribute': 'expr896',
+      'selector': '[expr896]',
+      'template': template('<ranker expr897></ranker>', [{
         'type': bindingTypes.EACH,
         'getKey': null,
         'condition': null,
@@ -2742,8 +2826,8 @@ var _default = {
             }
           }]
         }]),
-        'redundantAttribute': 'expr233',
-        'selector': '[expr233]',
+        'redundantAttribute': 'expr897',
+        'selector': '[expr897]',
         'itemName': 'ranker',
         'indexName': null,
         'evaluate': function (scope) {
@@ -2755,7 +2839,7 @@ var _default = {
   'name': 'rankers'
 };
 exports.default = _default;
-},{"./ranker.riot":5}],7:[function(require,module,exports){
+},{"./ranker.riot":6}],8:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2777,9 +2861,9 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<div class="box gray"><a href="/"><img src="img/logo.png" class="logo"/></a></div><div class="box"><br/><a expr224><button expr225 id="nowCupButton" class="button"><i class="fas fa-running"></i>\r\n            現在開催中の魔導杯へ</button><br/></a><br/></div><div class="box gray"><h3><i class="fas fa-trophy"></i> 魔導杯一覧</h3><div id="cupList"><a expr226 class="cup"></a></div><br/></div>', [{
-      'redundantAttribute': 'expr224',
-      'selector': '[expr224]',
+    return template('<div class="box gray"><a href="#"><img src="img/logo.png" class="logo"/></a></div><div class="box"><br/><a expr887><button expr888 id="nowCupButton" class="button"><i class="fas fa-running"></i>\r\n            現在開催中の魔導杯へ</button><br/></a><br/></div><div class="box gray"><h3><i class="fas fa-trophy"></i> 魔導杯一覧</h3><div id="cupList"><a expr889 class="cup"></a></div><br/></div>', [{
+      'redundantAttribute': 'expr887',
+      'selector': '[expr887]',
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'href',
@@ -2788,8 +2872,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr225',
-      'selector': '[expr225]',
+      'redundantAttribute': 'expr888',
+      'selector': '[expr888]',
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'disabled',
@@ -2801,7 +2885,7 @@ var _default = {
       'type': bindingTypes.EACH,
       'getKey': null,
       'condition': null,
-      'template': template('<div expr227><!----></div>', [{
+      'template': template('<div expr890><!----></div>', [{
         'expressions': [{
           'type': expressionTypes.ATTRIBUTE,
           'name': 'href',
@@ -2810,8 +2894,8 @@ var _default = {
           }
         }]
       }, {
-        'redundantAttribute': 'expr227',
-        'selector': '[expr227]',
+        'redundantAttribute': 'expr890',
+        'selector': '[expr890]',
         'expressions': [{
           'type': expressionTypes.TEXT,
           'childNodeIndex': 0,
@@ -2820,8 +2904,8 @@ var _default = {
           }
         }]
       }]),
-      'redundantAttribute': 'expr226',
-      'selector': '[expr226]',
+      'redundantAttribute': 'expr889',
+      'selector': '[expr889]',
       'itemName': 'cup',
       'indexName': null,
       'evaluate': function (scope) {

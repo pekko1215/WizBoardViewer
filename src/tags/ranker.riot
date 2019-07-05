@@ -1,4 +1,4 @@
-<ranker>
+<ranker class={props.data.isHidden ? 'hidden' : ''}>
     <div class="icon-wrapper">
         <img class="icon" src="{`https://i-quiz-colopl-jp.akamaized.net/img/card/small/${props.data.leaderCardImg}.png`}">
         <div class="favorite">★</div>
@@ -18,6 +18,11 @@
             margin-left: 32px;
             box-sizing: border-box;
             background-color: white;
+        }
+
+        :host.hidden {
+            /* 7Pay */
+            display:none;
         }
         
         .icon-wrapper {
