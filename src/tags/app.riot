@@ -1,15 +1,24 @@
 <app>
-    <sidemenu Cups={ props.Cups }></sidemenu>
-    <content Cups={ props.Cups }></content>
+    <sidemenu Cups={ props.Cups } FavoriteList={props.FavoriteList}></sidemenu>
+    <content Cups={ props.Cups } FavoriteList={props.FavoriteList}></content>
     <script>
         import Content from './content.riot';
         import Sidemenu from './sidemenu.riot';
 
+
         export default {
-            components:{Content,Sidemenu},
-            async onMounted(props){
-                const {Cups} = props;
-                let {cups,now_cup} = Cups;
+            components: {
+                Content,
+                Sidemenu
+            },
+            async onMounted(props, state) {
+                const {
+                    Cups
+                } = props;
+                let {
+                    cups,
+                    now_cup
+                } = Cups;
 
             }
         }

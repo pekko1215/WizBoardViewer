@@ -108,7 +108,11 @@
     <script>
         export default {
             onMounted(props, state) {
-                console.log(this.$('.icon-wrapper'));
+                console.log(props)
+                this.$('.icon-wrapper')
+                    .addEventListener('click', (e) => {
+
+                    });
             }
         }
     </script>

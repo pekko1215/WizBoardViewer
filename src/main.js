@@ -3,10 +3,19 @@ import App from './tags/app.riot';
 
 
 
-(async ()=>{
+(async() => {
     let Cups = await WBWrapper.GetCups();
-    riot.register('app',App);
-    riot.mount('app',{
-        Cups
+    const FavoriteList = (() => {
+        let f = localStorage.getItem('favorites');
+        if (!f) return [];
+        return JSON.parse(f).map(d => {
+            d.__proto__ = Ranker.prototype;
+            return d;
+        });
+    })();
+    riot.register('app', App);
+    riot.mount('app', {
+        Cups,
+        FavoriteList
     });
 })();

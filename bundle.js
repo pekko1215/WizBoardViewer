@@ -2336,9 +2336,20 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 (async () => {
   let Cups = await WBWrapper.GetCups();
+
+  const FavoriteList = (() => {
+    let f = localStorage.getItem('favorites');
+    if (!f) return [];
+    return JSON.parse(f).map(d => {
+      d.__proto__ = Ranker.prototype;
+      return d;
+    });
+  })();
+
   riot.register('app', _app.default);
   riot.mount('app', {
-    Cups
+    Cups,
+    FavoriteList
   });
 })();
 
@@ -2364,7 +2375,7 @@ var _default = {
       Sidemenu: _sidemenu.default
     },
 
-    async onMounted(props) {
+    async onMounted(props, state) {
       const {
         Cups
       } = props;
@@ -2376,7 +2387,7 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<sidemenu expr799></sidemenu><content expr800></content>', [{
+    return template('<sidemenu expr221></sidemenu><content expr222></content>', [{
       'type': bindingTypes.TAG,
       'getComponent': getComponent,
       'evaluate': function (scope) {
@@ -2389,9 +2400,15 @@ var _default = {
         'evaluate': function (scope) {
           return scope.props.Cups;
         }
+      }, {
+        'type': expressionTypes.ATTRIBUTE,
+        'name': 'FavoriteList',
+        'evaluate': function (scope) {
+          return scope.props.FavoriteList;
+        }
       }],
-      'redundantAttribute': 'expr799',
-      'selector': '[expr799]'
+      'redundantAttribute': 'expr221',
+      'selector': '[expr221]'
     }, {
       'type': bindingTypes.TAG,
       'getComponent': getComponent,
@@ -2405,9 +2422,15 @@ var _default = {
         'evaluate': function (scope) {
           return scope.props.Cups;
         }
+      }, {
+        'type': expressionTypes.ATTRIBUTE,
+        'name': 'FavoriteList',
+        'evaluate': function (scope) {
+          return scope.props.FavoriteList;
+        }
       }],
-      'redundantAttribute': 'expr800',
-      'selector': '[expr800]'
+      'redundantAttribute': 'expr222',
+      'selector': '[expr222]'
     }]);
   },
   'name': 'app'
@@ -2439,7 +2462,7 @@ function parseHash() {
 }
 
 var _default = {
-  'css': `content,[is="content"]{ position: absolute; left: 300px; right: 0; top: 0; bottom: 0; width: auto; height: auto; padding:64px; padding-bottom: 16px; overflow-y: scroll; }`,
+  'css': `content,[is="content"]{ position: absolute; left: 300px; right: 0; top: 0; bottom: 0; width: auto; height: auto; padding: 64px; padding-bottom: 16px; overflow-y: scroll; }`,
   'exports': {
     components: {
       Rankers: _rankers.default
@@ -2456,7 +2479,6 @@ var _default = {
 
       let redraw = () => {
         let hashData = parseHash();
-        console.log(hashData);
 
         switch (hashData.type) {
           case 'cup':
@@ -2473,13 +2495,13 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<rankers expr801></rankers>', [{
+    return template('<rankers expr223></rankers>', [{
       'type': bindingTypes.IF,
       'evaluate': function (scope) {
         return scope.state.type === 'rankers';
       },
-      'redundantAttribute': 'expr801',
-      'selector': '[expr801]',
+      'redundantAttribute': 'expr223',
+      'selector': '[expr223]',
       'template': template(null, [{
         'type': bindingTypes.TAG,
         'getComponent': getComponent,
@@ -2492,6 +2514,12 @@ var _default = {
           'name': 'cup',
           'evaluate': function (scope) {
             return scope.state.currentCup;
+          }
+        }, {
+          'type': expressionTypes.ATTRIBUTE,
+          'name': 'FavoriteList',
+          'evaluate': function (scope) {
+            return scope.props.FavoriteList;
           }
         }]
       }])
@@ -2511,14 +2539,15 @@ var _default = {
   'css': `ranker,[is="ranker"]{ position: relative; width: 256px; height: 64px; border: solid 1px #aaaaaa; border-radius: 0px 5px 5px 0px; display: inline-block; margin: 5px; margin-left: 32px; box-sizing: border-box; background-color: white; } ranker .icon-wrapper,[is="ranker"] .icon-wrapper{ width: 64px; height: 64px; position: absolute; left: -32px; } ranker .icon,[is="ranker"] .icon{ width: 64px; border-radius: 50%; border-radius: 5px 0px 0px 5px; position: absolute; top: -1px; border: solid 1px #aaaaaa; box-sizing: border-box; left: 0; } ranker .rank,[is="ranker"] .rank{ position: absolute; left: 36px; height: 100%; width: 38px; font-size: 27pt; line-height: 62px; font-family: 'Century Gothic'; text-shadow: 1px 1px 3px #525252; text-align: center; } ranker .name,[is="ranker"] .name{ position: absolute; left: 74px; width: 188px; top: 3px; text-align: center; } ranker .point,[is="ranker"] .point{ position: absolute; left: 74px; width: 188px; top: 30px; text-align: center; } ranker .favorite,[is="ranker"] .favorite{ width: 21px; height: 21px; border-radius: 0 0 0 6px; border: solid 1px #525252; box-sizing: border-box; position: absolute; top: 0; right: 0; background-color: white; line-height: 21px; text-align: center; font-size: 18px; } ranker .icon-wrapper,[is="ranker"] .icon-wrapper{ color: #ccc; } ranker .icon-wrapper:hover,[is="ranker"] .icon-wrapper:hover{ color: goldenrod; } ranker .icon-wrapper.favorited .favorite,[is="ranker"] .icon-wrapper.favorited .favorite{ animation: star; } @keyframes star { 0% { font-size: 18px; } 50% { font-size: 22px; } 100% { font-size: 18px; } }`,
   'exports': {
     onMounted(props, state) {
-      console.log(this.$('.icon-wrapper'));
+      console.log(props);
+      this.$('.icon-wrapper').addEventListener('click', e => {});
     }
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<div class="icon-wrapper"><img expr812 class="icon"/><div class="favorite">★</div></div><div expr813 class="rank"><!----></div><div expr814 class="name"><!----></div><div expr815 class="point"><!----></div>', [{
-      'redundantAttribute': 'expr812',
-      'selector': '[expr812]',
+    return template('<div class="icon-wrapper"><img expr234 class="icon"/><div class="favorite">★</div></div><div expr235 class="rank"><!----></div><div expr236 class="name"><!----></div><div expr237 class="point"><!----></div>', [{
+      'redundantAttribute': 'expr234',
+      'selector': '[expr234]',
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'src',
@@ -2527,8 +2556,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr813',
-      'selector': '[expr813]',
+      'redundantAttribute': 'expr235',
+      'selector': '[expr235]',
       'expressions': [{
         'type': expressionTypes.TEXT,
         'childNodeIndex': 0,
@@ -2537,8 +2566,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr814',
-      'selector': '[expr814]',
+      'redundantAttribute': 'expr236',
+      'selector': '[expr236]',
       'expressions': [{
         'type': expressionTypes.TEXT,
         'childNodeIndex': 0,
@@ -2547,8 +2576,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr815',
-      'selector': '[expr815]',
+      'redundantAttribute': 'expr237',
+      'selector': '[expr237]',
       'expressions': [{
         'type': expressionTypes.TEXT,
         'childNodeIndex': 0,
@@ -2594,7 +2623,6 @@ var _default = {
       state.board = await cup.getBoardInfomationLast();
       state.board.teams[0].isActive = true;
       state.board.currentTeam = state.board.teams[0];
-      console.log(state.board.currentTeam);
       this.update();
     },
 
@@ -2616,9 +2644,9 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<div expr806><div class="line-spin-fade-loader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div><div expr807 class="cup-title"><!----></div><hr/><div class="search-box"><div class="inline-input"><i class="fas fa-search"></i><div class="input" contenteditable></div></div></div><hr/><div expr808 class="toggle-switch"></div><br/><div expr810 class="board-datas"></div>', [{
-      'redundantAttribute': 'expr806',
-      'selector': '[expr806]',
+    return template('<div expr228><div class="line-spin-fade-loader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div><div expr229 class="cup-title"><!----></div><hr/><div class="search-box"><div class="inline-input"><i class="fas fa-search"></i><div class="input" contenteditable></div></div></div><hr/><div expr230 class="toggle-switch"></div><br/><div expr232 class="board-datas"></div>', [{
+      'redundantAttribute': 'expr228',
+      'selector': '[expr228]',
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'class',
@@ -2627,8 +2655,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr807',
-      'selector': '[expr807]',
+      'redundantAttribute': 'expr229',
+      'selector': '[expr229]',
       'expressions': [{
         'type': expressionTypes.TEXT,
         'childNodeIndex': 0,
@@ -2641,9 +2669,9 @@ var _default = {
       'evaluate': function (scope) {
         return scope.state.board;
       },
-      'redundantAttribute': 'expr808',
-      'selector': '[expr808]',
-      'template': template('<div expr809></div>', [{
+      'redundantAttribute': 'expr230',
+      'selector': '[expr230]',
+      'template': template('<div expr231></div>', [{
         'type': bindingTypes.EACH,
         'getKey': null,
         'condition': null,
@@ -2674,8 +2702,8 @@ var _default = {
             }
           }]
         }]),
-        'redundantAttribute': 'expr809',
-        'selector': '[expr809]',
+        'redundantAttribute': 'expr231',
+        'selector': '[expr231]',
         'itemName': 'team',
         'indexName': null,
         'evaluate': function (scope) {
@@ -2687,9 +2715,9 @@ var _default = {
       'evaluate': function (scope) {
         return scope.state.board;
       },
-      'redundantAttribute': 'expr810',
-      'selector': '[expr810]',
-      'template': template('<ranker expr811></ranker>', [{
+      'redundantAttribute': 'expr232',
+      'selector': '[expr232]',
+      'template': template('<ranker expr233></ranker>', [{
         'type': bindingTypes.EACH,
         'getKey': null,
         'condition': null,
@@ -2706,10 +2734,16 @@ var _default = {
             'evaluate': function (scope) {
               return scope.ranker;
             }
+          }, {
+            'type': expressionTypes.ATTRIBUTE,
+            'name': 'FavoriteList',
+            'evaluate': function (scope) {
+              return scope.props.FavoriteList;
+            }
           }]
         }]),
-        'redundantAttribute': 'expr811',
-        'selector': '[expr811]',
+        'redundantAttribute': 'expr233',
+        'selector': '[expr233]',
         'itemName': 'ranker',
         'indexName': null,
         'evaluate': function (scope) {
@@ -2743,9 +2777,9 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<div class="box gray"><a href="/"><img src="img/logo.png" class="logo"/></a></div><div class="box"><br/><a expr802><button expr803 id="nowCupButton" class="button"><i class="fas fa-running"></i>\r\n            現在開催中の魔導杯へ</button><br/></a><br/></div><div class="box gray"><h3><i class="fas fa-trophy"></i> 魔導杯一覧</h3><div id="cupList"><a expr804 class="cup"></a></div><br/></div>', [{
-      'redundantAttribute': 'expr802',
-      'selector': '[expr802]',
+    return template('<div class="box gray"><a href="/"><img src="img/logo.png" class="logo"/></a></div><div class="box"><br/><a expr224><button expr225 id="nowCupButton" class="button"><i class="fas fa-running"></i>\r\n            現在開催中の魔導杯へ</button><br/></a><br/></div><div class="box gray"><h3><i class="fas fa-trophy"></i> 魔導杯一覧</h3><div id="cupList"><a expr226 class="cup"></a></div><br/></div>', [{
+      'redundantAttribute': 'expr224',
+      'selector': '[expr224]',
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'href',
@@ -2754,8 +2788,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr803',
-      'selector': '[expr803]',
+      'redundantAttribute': 'expr225',
+      'selector': '[expr225]',
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'disabled',
@@ -2767,7 +2801,7 @@ var _default = {
       'type': bindingTypes.EACH,
       'getKey': null,
       'condition': null,
-      'template': template('<div expr805><!----></div>', [{
+      'template': template('<div expr227><!----></div>', [{
         'expressions': [{
           'type': expressionTypes.ATTRIBUTE,
           'name': 'href',
@@ -2776,8 +2810,8 @@ var _default = {
           }
         }]
       }, {
-        'redundantAttribute': 'expr805',
-        'selector': '[expr805]',
+        'redundantAttribute': 'expr227',
+        'selector': '[expr227]',
         'expressions': [{
           'type': expressionTypes.TEXT,
           'childNodeIndex': 0,
@@ -2786,8 +2820,8 @@ var _default = {
           }
         }]
       }]),
-      'redundantAttribute': 'expr804',
-      'selector': '[expr804]',
+      'redundantAttribute': 'expr226',
+      'selector': '[expr226]',
       'itemName': 'cup',
       'indexName': null,
       'evaluate': function (scope) {
