@@ -2351,6 +2351,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
     Cups,
     FavoriteList
   });
+  window.FavoriteList = FavoriteList;
 })();
 
 },{"./tags/app.riot":3,"riot":1}],3:[function(require,module,exports){
@@ -2387,7 +2388,7 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<sidemenu expr883></sidemenu><content expr884></content>', [{
+    return template('<sidemenu expr0></sidemenu><content expr1></content>', [{
       'type': bindingTypes.TAG,
       'getComponent': getComponent,
       'evaluate': function (scope) {
@@ -2407,8 +2408,8 @@ var _default = {
           return scope.props.FavoriteList;
         }
       }],
-      'redundantAttribute': 'expr883',
-      'selector': '[expr883]'
+      'redundantAttribute': 'expr0',
+      'selector': '[expr0]'
     }, {
       'type': bindingTypes.TAG,
       'getComponent': getComponent,
@@ -2429,8 +2430,8 @@ var _default = {
           return scope.props.FavoriteList;
         }
       }],
-      'redundantAttribute': 'expr884',
-      'selector': '[expr884]'
+      'redundantAttribute': 'expr1',
+      'selector': '[expr1]'
     }]);
   },
   'name': 'app'
@@ -2504,13 +2505,13 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<mainpage expr885></mainpage><rankers expr886></rankers>', [{
+    return template('<mainpage expr2></mainpage><rankers expr3></rankers>', [{
       'type': bindingTypes.IF,
       'evaluate': function (scope) {
         return scope.state.type === 'home';
       },
-      'redundantAttribute': 'expr885',
-      'selector': '[expr885]',
+      'redundantAttribute': 'expr2',
+      'selector': '[expr2]',
       'template': template(null, [{
         'type': bindingTypes.TAG,
         'getComponent': getComponent,
@@ -2525,8 +2526,8 @@ var _default = {
       'evaluate': function (scope) {
         return scope.state.type === 'rankers';
       },
-      'redundantAttribute': 'expr886',
-      'selector': '[expr886]',
+      'redundantAttribute': 'expr3',
+      'selector': '[expr3]',
       'template': template(null, [{
         'type': bindingTypes.TAG,
         'getComponent': getComponent,
@@ -2576,17 +2577,46 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+
+function updateFavorite(props, state) {
+  let rank = props.data;
+  let idx = this.props.FavoriteList.findIndex(d => {
+    return d.userId === rank.userId && d.team.board.cup === rank.team.board.cup;
+  });
+
+  if (idx !== -1) {
+    rank.isFavorited = true;
+  } else {
+    rank.isFavorited = false;
+  }
+}
+
 var _default = {
-  'css': `ranker,[is="ranker"]{ position: relative; width: 256px; height: 64px; border: solid 1px #aaaaaa; border-radius: 0px 5px 5px 0px; display: inline-block; margin: 5px; margin-left: 32px; box-sizing: border-box; background-color: white; } ranker.hidden,[is="ranker"].hidden{ display:none; } ranker .icon-wrapper,[is="ranker"] .icon-wrapper{ width: 64px; height: 64px; position: absolute; left: -32px; } ranker .icon,[is="ranker"] .icon{ width: 64px; border-radius: 50%; border-radius: 5px 0px 0px 5px; position: absolute; top: -1px; border: solid 1px #aaaaaa; box-sizing: border-box; left: 0; } ranker .rank,[is="ranker"] .rank{ position: absolute; left: 36px; height: 100%; width: 38px; font-size: 27pt; line-height: 62px; font-family: 'Century Gothic'; text-shadow: 1px 1px 3px #525252; text-align: center; } ranker .name,[is="ranker"] .name{ position: absolute; left: 74px; width: 188px; top: 3px; text-align: center; } ranker .point,[is="ranker"] .point{ position: absolute; left: 74px; width: 188px; top: 30px; text-align: center; } ranker .favorite,[is="ranker"] .favorite{ width: 21px; height: 21px; border-radius: 0 0 0 6px; border: solid 1px #525252; box-sizing: border-box; position: absolute; top: 0; right: 0; background-color: white; line-height: 21px; text-align: center; font-size: 18px; } ranker .icon-wrapper,[is="ranker"] .icon-wrapper{ color: #ccc; } ranker .icon-wrapper:hover,[is="ranker"] .icon-wrapper:hover{ color: goldenrod; } ranker .icon-wrapper.favorited .favorite,[is="ranker"] .icon-wrapper.favorited .favorite{ animation: star; } @keyframes star { 0% { font-size: 18px; } 50% { font-size: 22px; } 100% { font-size: 18px; } }`,
+  'css': `ranker,[is="ranker"]{ position: relative; width: 256px; height: 64px; border: solid 1px #aaaaaa; border-radius: 0px 5px 5px 0px; display: inline-block; margin: 5px; margin-left: 32px; box-sizing: border-box; background-color: white; } ranker.hidden,[is="ranker"].hidden{ display: none; } ranker .icon-wrapper,[is="ranker"] .icon-wrapper{ width: 64px; height: 64px; position: absolute; left: -32px; cursor: pointer; } ranker .icon-wrapper.favorited,[is="ranker"] .icon-wrapper.favorited{ color: gold !important; -webkit-text-stroke: 1px gray; text-stroke: 1px gray; } ranker .icon,[is="ranker"] .icon{ width: 64px; border-radius: 50%; border-radius: 5px 0px 0px 5px; position: absolute; top: -1px; border: solid 1px #aaaaaa; box-sizing: border-box; left: 0; } ranker .rank,[is="ranker"] .rank{ position: absolute; left: 36px; height: 100%; width: 38px; font-size: 27pt; line-height: 62px; font-family: 'Century Gothic'; text-shadow: 1px 1px 3px #525252; text-align: center; } ranker .name,[is="ranker"] .name{ position: absolute; left: 74px; width: 188px; top: 3px; text-align: center; } ranker .point,[is="ranker"] .point{ position: absolute; left: 74px; width: 188px; top: 30px; text-align: center; } ranker .favorite,[is="ranker"] .favorite{ width: 21px; height: 21px; border-radius: 0 0 0 6px; border: solid 1px #525252; box-sizing: border-box; position: absolute; top: 0; right: 0; background-color: #ddd; line-height: 21px; text-align: center; font-size: 18px; } ranker .icon-wrapper,[is="ranker"] .icon-wrapper{ color: #ccc; } ranker .icon-wrapper:hover,[is="ranker"] .icon-wrapper:hover{ color: goldenrod; } ranker .icon-wrapper.favorited .favorite,[is="ranker"] .icon-wrapper.favorited .favorite{ animation: star 0.1s; background-color: white; } @keyframes star { 0% { font-size: 18px; } 50% { font-size: 12px; } 100% { font-size: 18px; } }`,
   'exports': {
-    onMounted(props, state) {
-      console.log(props);
-      this.$('.icon-wrapper').addEventListener('click', e => {});
+    onMounted(props, state) {},
+
+    onBeforeUpdate: updateFavorite,
+    onBeforeMount: updateFavorite,
+
+    clickFavorite() {
+      let rank = this.props.data;
+      let idx = this.props.FavoriteList.findIndex(d => {
+        return d.userId === rank.userId && d.team.board.cup === rank.team.board.cup;
+      });
+
+      if (idx !== -1) {
+        this.props.FavoriteList.splice(idx, 1);
+      } else {
+        this.props.FavoriteList.push(rank);
+      }
+
+      this.update();
     }
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<div class="icon-wrapper"><img expr898 class="icon"/><div class="favorite">★</div></div><div expr899 class="rank"><!----></div><div expr900 class="name"><!----></div><div expr901 class="point"><!----></div>', [{
+    return template('<div expr15><img expr16 class="icon"/><div class="favorite">★</div></div><div expr17 class="rank"><!----></div><div expr18 class="name"><!----></div><div expr19 class="point"><!----></div>', [{
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'class',
@@ -2595,8 +2625,24 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr898',
-      'selector': '[expr898]',
+      'redundantAttribute': 'expr15',
+      'selector': '[expr15]',
+      'expressions': [{
+        'type': expressionTypes.ATTRIBUTE,
+        'name': 'class',
+        'evaluate': function (scope) {
+          return ['icon-wrapper ', scope.props.data.isFavorited ? 'favorited' : ''].join('');
+        }
+      }, {
+        'type': expressionTypes.EVENT,
+        'name': 'onclick',
+        'evaluate': function (scope) {
+          return scope.clickFavorite;
+        }
+      }]
+    }, {
+      'redundantAttribute': 'expr16',
+      'selector': '[expr16]',
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'src',
@@ -2605,8 +2651,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr899',
-      'selector': '[expr899]',
+      'redundantAttribute': 'expr17',
+      'selector': '[expr17]',
       'expressions': [{
         'type': expressionTypes.TEXT,
         'childNodeIndex': 0,
@@ -2615,8 +2661,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr900',
-      'selector': '[expr900]',
+      'redundantAttribute': 'expr18',
+      'selector': '[expr18]',
       'expressions': [{
         'type': expressionTypes.TEXT,
         'childNodeIndex': 0,
@@ -2625,8 +2671,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr901',
-      'selector': '[expr901]',
+      'redundantAttribute': 'expr19',
+      'selector': '[expr19]',
       'expressions': [{
         'type': expressionTypes.TEXT,
         'childNodeIndex': 0,
@@ -2718,9 +2764,9 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<div expr891><div class="line-spin-fade-loader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div><div expr892 class="cup-title"><!----></div><hr/><div class="search-box"><div class="inline-input"><i class="fas fa-search"></i><div expr893 class="input" contenteditable></div></div></div><hr/><div expr894 class="toggle-switch"></div><br/><div expr896 class="board-datas"></div>', [{
-      'redundantAttribute': 'expr891',
-      'selector': '[expr891]',
+    return template('<div expr8><div class="line-spin-fade-loader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div><div expr9 class="cup-title"><!----></div><hr/><div class="search-box"><div class="inline-input"><i class="fas fa-search"></i><div expr10 class="input" contenteditable></div></div></div><hr/><div expr11 class="toggle-switch"></div><br/><div expr13 class="board-datas"></div>', [{
+      'redundantAttribute': 'expr8',
+      'selector': '[expr8]',
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'class',
@@ -2729,8 +2775,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr892',
-      'selector': '[expr892]',
+      'redundantAttribute': 'expr9',
+      'selector': '[expr9]',
       'expressions': [{
         'type': expressionTypes.TEXT,
         'childNodeIndex': 0,
@@ -2739,8 +2785,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr893',
-      'selector': '[expr893]',
+      'redundantAttribute': 'expr10',
+      'selector': '[expr10]',
       'expressions': [{
         'type': expressionTypes.EVENT,
         'name': 'onkeyup',
@@ -2753,9 +2799,9 @@ var _default = {
       'evaluate': function (scope) {
         return scope.state.board;
       },
-      'redundantAttribute': 'expr894',
-      'selector': '[expr894]',
-      'template': template('<div expr895></div>', [{
+      'redundantAttribute': 'expr11',
+      'selector': '[expr11]',
+      'template': template('<div expr12></div>', [{
         'type': bindingTypes.EACH,
         'getKey': null,
         'condition': null,
@@ -2786,8 +2832,8 @@ var _default = {
             }
           }]
         }]),
-        'redundantAttribute': 'expr895',
-        'selector': '[expr895]',
+        'redundantAttribute': 'expr12',
+        'selector': '[expr12]',
         'itemName': 'team',
         'indexName': null,
         'evaluate': function (scope) {
@@ -2799,9 +2845,9 @@ var _default = {
       'evaluate': function (scope) {
         return scope.state.board;
       },
-      'redundantAttribute': 'expr896',
-      'selector': '[expr896]',
-      'template': template('<ranker expr897></ranker>', [{
+      'redundantAttribute': 'expr13',
+      'selector': '[expr13]',
+      'template': template('<ranker expr14></ranker>', [{
         'type': bindingTypes.EACH,
         'getKey': null,
         'condition': null,
@@ -2826,8 +2872,8 @@ var _default = {
             }
           }]
         }]),
-        'redundantAttribute': 'expr897',
-        'selector': '[expr897]',
+        'redundantAttribute': 'expr14',
+        'selector': '[expr14]',
         'itemName': 'ranker',
         'indexName': null,
         'evaluate': function (scope) {
@@ -2861,9 +2907,9 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<div class="box gray"><a href="#"><img src="img/logo.png" class="logo"/></a></div><div class="box"><br/><a expr887><button expr888 id="nowCupButton" class="button"><i class="fas fa-running"></i>\r\n            現在開催中の魔導杯へ</button><br/></a><br/></div><div class="box gray"><h3><i class="fas fa-trophy"></i> 魔導杯一覧</h3><div id="cupList"><a expr889 class="cup"></a></div><br/></div>', [{
-      'redundantAttribute': 'expr887',
-      'selector': '[expr887]',
+    return template('<div class="box gray"><a href="#"><img src="img/logo.png" class="logo"/></a></div><div class="box"><br/><a expr4><button expr5 id="nowCupButton" class="button"><i class="fas fa-running"></i>\r\n            現在開催中の魔導杯へ</button><br/></a><br/></div><div class="box gray"><h3><i class="fas fa-trophy"></i> 魔導杯一覧</h3><div id="cupList"><a expr6 class="cup"></a></div><br/></div>', [{
+      'redundantAttribute': 'expr4',
+      'selector': '[expr4]',
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'href',
@@ -2872,8 +2918,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr888',
-      'selector': '[expr888]',
+      'redundantAttribute': 'expr5',
+      'selector': '[expr5]',
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'disabled',
@@ -2885,7 +2931,7 @@ var _default = {
       'type': bindingTypes.EACH,
       'getKey': null,
       'condition': null,
-      'template': template('<div expr890><!----></div>', [{
+      'template': template('<div expr7><!----></div>', [{
         'expressions': [{
           'type': expressionTypes.ATTRIBUTE,
           'name': 'href',
@@ -2894,8 +2940,8 @@ var _default = {
           }
         }]
       }, {
-        'redundantAttribute': 'expr890',
-        'selector': '[expr890]',
+        'redundantAttribute': 'expr7',
+        'selector': '[expr7]',
         'expressions': [{
           'type': expressionTypes.TEXT,
           'childNodeIndex': 0,
@@ -2904,8 +2950,8 @@ var _default = {
           }
         }]
       }]),
-      'redundantAttribute': 'expr889',
-      'selector': '[expr889]',
+      'redundantAttribute': 'expr6',
+      'selector': '[expr6]',
       'itemName': 'cup',
       'indexName': null,
       'evaluate': function (scope) {

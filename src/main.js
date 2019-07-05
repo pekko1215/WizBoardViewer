@@ -18,4 +18,5 @@ import App from './tags/app.riot';
         Cups,
         FavoriteList
     });
+    window.FavoriteList = FavoriteList;
 })();
