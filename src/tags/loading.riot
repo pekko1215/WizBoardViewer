@@ -1,14 +1,16 @@
 <loading>
-    <div>
-        <div class="line-spin-fade-loader">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+    <div class="center-wrapper">
+        <div>
+            <div class="line-spin-fade-loader">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </div>
     </div>
     <style>
@@ -23,7 +25,7 @@
             transition: opacity 0s;
             pointer-events: auto;
             z-index: 10;
-            display: inline;
+            display: block;
         }
         
          :host.hidden {
@@ -32,7 +34,17 @@
             pointer-events: none;
         }
         
-         :host>div {
+        .center-wrapper {
+            width: 300px;
+            height: 95vh;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+        
+        .center-wrapper>div {
             flex: 0 1 auto;
             flex-direction: column;
             flex-grow: 1;

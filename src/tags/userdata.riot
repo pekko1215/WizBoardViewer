@@ -8,9 +8,23 @@
         </div>
         <div class="right">{state.cup.title}</div>
         <hr>
-        <usergraf data={state}></usergraf>
+        <div class="toggle-switch ">
+            <div onclick={toggleDay} each={(data,day) in state.dayPoints} class="toggle-button {state.currentPoints===data ? 'active' : ''} {!data ? 'disabled' : ''}" data-idx={day}>{data.name}</div>
+        </div>
+        <br>
+        <usergraf data={state} points={state.currentPoints.points} class="width-full"></usergraf>
+        <div class="width-full" style="text-align: center">
+            <h4>最高時速 : {state.currentPoints.maxSpeed.speed} Pt/hours ({state.currentPoints.maxSpeed.date.toLocaleTimeString().split(':').slice(0,2).join(':')})</h4>
+            <h4>平均時速 : {state.currentPoints.average.toFixed(1)} Pt/hours</h4>
+        </div>
+        <speedmeter each={(data,day) in state.dayPoints} title={data.name} max={data.maxSpeed.speed} v={data.average} class="{day === 0 ? 'width-full' : 'width-quarter'}"></speedmeter>
     </div>
     <style>
+         :host {
+            position: relative;
+            display: block;
+        }
+        
         .title-data {
             height: 100px;
             display: flex;
@@ -35,15 +49,75 @@
             text-align: right;
             margin-top: -31px;
         }
+        
+        .width-full {
+            width: 100%;
+        }
+        
+        .toggle-button:hover {
+            background-color: #eeeeee;
+        }
+        
+        .toggle-button.active {
+            background-color: #eee;
+            font-weight: bold;
+        }
+        
+        .disabled {
+            background-color: #ccc !important;
+            color: #bbb !important;
+            cursor: default;
+        }
+        
+        .toggle-switch {
+            max-width: 600px;
+            width: 100%;
+            border: solid 1px #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            box-sizing: border-box;
+            display: table;
+        }
+        
+        .toggle-button {
+            background-color: white;
+            display: inline-block;
+            width: auto;
+            box-sizing: border-box;
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+            border-right: solid 1px #ccc;
+            cursor: pointer;
+            height: 50px;
+        }
+        
+        .width-half,
+        .width-quarter {
+            width: 100%;
+            box-sizing: border-box;
+            display: inline-block;
+        }
+        
+        @media screen and (min-width:1024px) {
+            .width-half {
+                width: 50%;
+            }
+            .width-quarter {
+                width: 25%;
+            }
+        }
     </style>
     <script>
         import Usergraf from './viewer/usergraf.riot';
+        import Speedmeter from './viewer/speedmeter.riot';
         import Loading from './loading.riot';
 
         export default {
             components: {
                 Usergraf,
-                Loading
+                Loading,
+                Speedmeter
             },
             async onMounted(props, state) {
                 if (!state.timeDatas) {
@@ -102,7 +176,6 @@
                         name = t.name;
                         img = t.leaderCardImg;
                     });
-
                     this.state = {
                         name,
                         timeDatas,
@@ -110,10 +183,49 @@
                         teams,
                         img
                     }
+                    this.state.dayPoints = [null, 0, 1, 2, 3].map((day, i) => {
+                        let data = {
+                            name: ['総合', '1日目', '2日目', '3日目', '4日目'][i],
+                            points: this.getDayDatas(day)
+                        }
+                        let p = -1;
+                        let sum = 0;
+                        data.points.forEach(d => {
+                            if (d.speed && d.speed > p) {
+                                p = d.speed;
+                                data.maxSpeed = d;
+                            }
+                            sum += d.speed ? d.speed : 0;
+                        })
+                        data.average = sum / data.points.length;
+                        return data;
+                    })
+                    this.state.currentPoints = this.state.dayPoints[0];
                     this.update();
-                } else {
-                    console.log(this);
                 }
+            },
+            getDayDatas(day) {
+                if (day === null) return this.state.timeDatas;
+                let arr = [0, 8, 32, 56, 72];
+                return this.state.timeDatas.slice(arr[day], arr[day + 1]);
+            },
+            toggleDay(e) {
+
+                let {
+                    props,
+                    state
+                } = this;
+                let {
+                    target
+                } = e;
+                if (target.classList.contains('active')) return;
+                if (!state.currentPoints) return;
+
+                let dayIndex = Number(target.dataset.idx);
+                if (!state.dayPoints[dayIndex]) return;
+                state.currentPoints = state.dayPoints[dayIndex];
+                console.log(state.currentPoints)
+                this.update();
             }
         }
     </script>

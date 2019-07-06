@@ -1,0 +1,55 @@
+<speedmeter>
+    <div class="title">{props.title}</div class="title">
+    <div id="meter"></div>
+    <script>
+        import {
+            generate
+        } from 'c3';
+        export default {
+            onMounted(props, state) {
+                let {
+                    title,
+                    max,
+                    v,
+                    min
+                } = props;
+                max = max || 0;
+                min = min || 0;
+                let chart = generate({
+                    bindto: this.$('#meter'),
+                    data: {
+                        columns: [
+                            ['平均時速', v]
+                        ],
+                        type: 'gauge'
+                    },
+                    gauge: {
+                        min,
+                        max
+                    },
+                    color: {
+                        pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'],
+                        threshold: {
+                            values: [1, 2, 3, 4].map(p => max / 4 * p)
+                        }
+                    }
+                })
+            }
+        }
+    </script>
+    <style>
+         :host {
+            text-align: center;
+        }
+        
+        .title {
+            text-align: center;
+            font-size: 15pt;
+            font-weight: bold;
+        }
+        
+        #meter {
+            margin-top: -20px;
+        }
+    </style>
+</speedmeter>

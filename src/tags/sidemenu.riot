@@ -1,26 +1,29 @@
 <sidemenu>
     <style scoped>
-        :host {
+         :host {
             width: 300px;
-            height: 100%;
+            height: auto;
             top: 0;
             left: 0;
             position: absolute;
             background-color: #33343a;
             color: white;
             text-align: center;
+            display: block;
+            bottom: 0;
+            margin: 0 auto;
         }
-
+        
         .logo {
             width: 80%;
         }
-
+        
         .box {
             width: 100%;
             border-bottom: solid 1px #2c2d31;
             padding-top: 3px;
         }
-
+        
         .cup {
             text-align: left;
             color: gray;
@@ -32,21 +35,20 @@
             margin-top: 3px;
             box-sizing: border-box;
         }
-
+        
         .cup:hover {
             color: white;
         }
-
+        
         .cup.active {
-            color:white;
+            color: white;
             font-weight: bold;
         }
-
-
+        
         .gray {
             background-color: #363841;
         }
-
+        
         .button {
             padding: 18px;
             padding-left: 24px;
@@ -59,7 +61,8 @@
             font-size: 13pt;
             cursor: pointer;
         }
-        .button:disabled{
+        
+        .button:disabled {
             cursor: default;
             background-color: #ccc;
         }
@@ -72,10 +75,10 @@
     <div class="box">
         <br>
         <a href={props.Cups.now_cup ? '#cup/' + props.Cups.now_cup.id : '#'}>
-        <button id="nowCupButton" class="button" disabled={props.Cups.now_cup===null}><i class="fas fa-running"></i>
+            <button id="nowCupButton" class="button" disabled={props.Cups.now_cup===null}><i class="fas fa-running"></i>
             現在開催中の魔導杯へ</button>
-            
-        <br>
+
+            <br>
         </a>
         <br>
     </div>
@@ -91,8 +94,13 @@
     <script>
         export default {
             async onMounted(props) {
-                const { Cups } = props;
-                let { cups, now_cup } = Cups;
+                const {
+                    Cups
+                } = props;
+                let {
+                    cups,
+                    now_cup
+                } = Cups;
             }
         }
     </script>

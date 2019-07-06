@@ -32317,7 +32317,50 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
     Cups,
     FavoriteList
   });
-  window.FavoriteList = FavoriteList;
+  console.log(`
+%c\nMMMMMMMMMMMMMMMMMMMMMMMMMMUzZOv<<<+-...-(-<<+--.. _......._.~_(++&xzwwOdHkqgHHZXWMM@@@HbkpppWXzzwXQM
+MMMMMMMMMMMMMMMMMMMMMMMMSXXVC!' .+++z<(z<-_(=zzo---:<<<<<+(++udWUUOwZVWMgH@@HWXHHMH@MMHHHHqWXuXXHMMM
+MMMMNgMMMMMMMMMMMMMMMMHk0Cj0_+dXkbkWkds1wwwo+wuXC! '''.(z++zdUOtOwwzwwuWMH@@HWHHM8I?TWHHMHHkWHMMMMMM
+MMMMMMMMMMMMMMNNMBTWHC<1wW6X+dHH011zRdNwXXWVTWkC++---(zOwwXkwwwwuuXZZyyXXHWUHHHMHI<:::;:(vMMMMMMMMMM
+MHMMMMMMMMMMMMMNIwwdI(jdf--+0C~(OXv>'_?XT7<OwdIjvwwXXk>(dWgkwZyuuZyyWWkWWHHWWXHNWk+<;<:;;:dHMqkkkbWW
+MHZyWHMMHMMMMMMNmwI+d&zjA+OzIwwX0V<(+zw>(+gkkXzzXXkXkWkXWHHWWyyZXyyyWHgHW@HkyyWW9YT7O<;::+dMM@MHHHWX
+WXyyZyZZyXZZZXXUUUUWUXAx<<<<?OVz+dk+z>1+dgHC?wAjXWH7WgHY<jWHqWHWkyyyWHHgHMHHHHkWQkkXV<<<<jHTMHM@@HHH
+XXyZyyZZyZuuuuvzzvvrwwWHHHWAJ-_<!~~?7777zZO&jMMRvUWQWHC;:+WWWHqqHWyyyfHM@MHH@HWyWHZI;<><+XS0J+H@M@@g
+MkyyyZyZZZuuuzzzzrvwXqkqqHWWqqHma+-..'''._~~~__vUwzv73::+(gMMMHHgmHmHHMMHMMHHWWk@Hkkz><1dS1jHMMHHHqk
+yZyyZyyZZZuuzzzzzwXkHqqqkWWqqqqkqHqme-..''''.'._jZzUXXZWMMMMHMMMMHUZyVWWMHHHMMHHWWHHHkyUV=uWMHHWHHHH
+yyyZyZZZZuuuzuuzwXpHqqqqqqqqHqqqHWqkqHHm+..''''.._<<?7zOOwVWKIlltvwuyXWgmHfH@mqHWWWMWkzzlzWMMMHkVyyy
+ZyyZyyZZZuuzzXzwWXWqqqkqqkkqqqHkHWqqqqqqHm&--..''''. ._-__.(XOztrvuuyWHHHppVHHHWpWpHHWXwOtOdM@MHHWyV
+ZyZyyyZZZuuuuXwKXkqkkqqkkqkqkkHkWqqqqkqqqHqmgk-.' ' -+i(zIzzzWkyrvzXyyyffpppWHffW0XgkXXZwtzdMMMM@HHk
+yZyyyyyZZZuuuXHXWkbkHkHkbkkbkkkkbkkkkkkkkqqqqHHkQm+-._' .-_~__?TWWXXXWWWffffWHHWkkHXUWUHWyWMMNMNNMMM
+ZyyZyZyyZZZuXWXpbWHWWpWppppbbbpbbbpbbbkbbkbbkbqHHbHHk+-'''''''' _??777UXWpWVUXHUUVC<?OuuXuZZuZXUWHMM
+ZyZyyyyZyZZZWSXppSXWfSXWffffffffpfWffpfWWffffpkHWWWbWbbm+---.'..''''.._?UWWXVUI!_<<~~_<?zCOVXXZZZZXw
+yZyyZyZyyZZXWdVW0<zOC=OtOOtOwXZwOOzzOZUVZXyyyVmSWfWkSVffpHHA:..''.'.'''._<_<-._<..~~~~~____~jXAzz<1O
+ZyZZyyyWyyZWXyX0<::z1+zllltOXZllO=<:+1z1<<1XuXHXuZXHuyyWfSXWk-.- ''''''''._~<1<<<<~_._~(UUC~__?17C<:
+yyyyyZUXZZXSXuZ1zll?<:<z+lOwkz?=z>++?zz?<++=zXHvzXWUuZZZXwXkkXUU6-.'.'..''.'._<_......---__~(+J&--_~
+yZyZWXwdZyWXwZOltt1z+zl<:+OX0=zz==???z?????1dk01Od0vzuXkkWUUOI===OXQm.. '.'''''..'.....<<_~~~??T7TC_
+NHkWkkQQkW0wWOtOllzOzOzzzzwWIlzv==???1>>>>?zWWIjlwwwXHpWUI======?=1zkHpm+-.''.'''''....._jae+~~<wuXV
+MMBYY"7?!jOXZOwOtOvzwttlOzXSlzwz???>?<>;;++dpS1AXWWWXUXS1??=<<;+zz1zHfppkHHA..''..''.'---_~~_---_~~j
+''  '   '(wSwXZOtwZOuOttwXW0lzS????>+<;;;+dHWkXUOZUyyUZOwwQQgkW9H$_(HXWWpHK0WX+.  ''..JbWs,-.?Svw&-~
+++(--....jSOXROzOuZwZwtOwXKZ=dSwzz+>+<<+xd0wVI1=?+1zAQkHMMMM8! .6<~jHXSzXWHzXW@HWHaJ--<v7TT~.._zwXXw
+ _<<?1=1dHXdHSrrwZwwywtwukSwzWOzOwOwQkUVz1?1??>+?1d#=!''(wZv>'.__~(XWZuvwWW0XHqHmHHqqHeWkmaa&.-.(gg+
+-   _?==dKwkWkrrwWuZykrwXHuwdXwuQXHWWkAxz??????>?<<~ ''   .((<<__(JWXurzXH0IXHqHHHHqqqqqqqHHHNmggMMM
+_(_- ' _OSXwWWvvXkXZXykyWHXWM9TYYTYMMHBUz??<<<<<~~~..~_~~~~_::<::jXWuVrr0CjXWWkHfHHHqqmHqqkHMMMMMMMM
+(;;;<_. jZC?WVXzXHXXkXSVWHK0vU+'  ?717! <<~~~~~~.~.~..~..~_:~::<jOXXXrOdQkWZWHkHWWHWHHHHHkHWMMMMMMNM
+;:<<<~' zX!'jWWXXHWXXuXWHWWkz;?<-....-~~~~~.~...~..~.~.~.~~~~~<+CjSuXOdHHHWZWgHNWHWHHWWkkWY' ?TMNMMW
+''    ''jk-.+0XVyHVyXXWHWUWWmx::(((__~~....~...~.~..~.~...~.~(<<(duXwX9>?79XWHMHHHqkkHU0C!   .(vUXWH
+'' ..((+wHI+>zwwUWkWW9<<vy<vTHy<<;;;:~~..~...___.~~..~.~_(_~.~~(juuwW0~_(zx<Wky+_(dSC71(J+ggdHmQkHHM
+Jzlz1=??=vz>>>>jUWWHH<+(jWHa&xWA+;<<~~.~~.~.(z<~~..~._(JdHr_~~_dkXHHSIz&dXVkdHkmXHkWmH@@HHqqkHHHHHMM
+XXWWWkkQQQQAAQAgWkHMNzwXdU0TWHHMR<~~~..~.~.~~~~..~_((dUXXX$~~~_<jWMNXXWWKC<<dHqH9SUdH@@HgHHHWXUXXXD'
+lltrwwXUUUWHHHHHWUWmmHmkw+jgHHHWXk.~_~~~~.~(--((JdX0wrrwX9~~_:(jWHHHkOVW6<+gHkWkwQHHMMMHWXXuuvzzXk!
+OtttrwAXkWUU0wrvXXWH@MMHMMMMH@M9WHHn-~_~~_~_?WM0VvwwvrZC<~__(jdHSWvHqHHkkWMMHHHMMMHHHWkkXXuwXXWfWN_
+11OOOZWWkAwrtttwXUUUZXWM#MMMHH#! _~~??1+_:~:~~~~<<<<<~~~::(uWHWyXWwWHfWXWMMMHM@HWWWMHHgHWWffpWWMMM{'
+(+zttwwXXWHkHHkQQQmQXH@MMMH@@M%.'' ..+??TX&+__:_~:~~~::(+gHHyyyyyWwtv1+dWMMHWWHHHXzXUHHfWHHMMmHHWWb-
+<+ztwXZyyVppbqqqqqmHqHHmHqqgH0~.(((dwOz&. _?Cw&+:::;;+dWHWyWXyyyXWuXyz+XbHMHZZZXUSzvzvXUUXwvXUWkwuUW
+(+zttrrwXXXUWWWWHHHHHHHkqHHSdwZ>~~_:~<zWW; ' _?7UagQXHWWyyZyZyyZ0XkwUXOXkHHHXXzzzvvrrrttOrtrrXXWHkkU
+?zzttrrZwwwzuuZZZZZXHpWHHWXVC<__..~~.~_<OWo. .. .JMHWZyyyyyyyZXZ<?9TVXHWkbWMHkwwrrtrOwwAAmXkQkWHHHWk
+trI?<+zOwwwXWWUUZXWHWHMbWXC~~.~~.~...~~_(dUUUOwXkllzWZXWXyWyyXC<::<<:<1dWWWWHHHHQQkHqHMMHHkXZZZUUUUU
+1<__(+wXWHUXuXZZZW@HHHWWV<_.~..~.~~.~..(rllOwwrXXkwOwUC1+XUy0I<;<;:<<+1zUfHkXWMHHqHWUUXXwvrwZOtltttl`, "font-size:2pt");
+  console.log("%cJavaScriptを知るものを募集しています。@eakonnsamui", "");
 })();
 
 },{"./tags/app.riot":36,"riot":34}],36:[function(require,module,exports){
@@ -32335,7 +32378,7 @@ var _sidemenu = _interopRequireDefault(require("./sidemenu.riot"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _default = {
-  'css': null,
+  'css': `app,[is="app"]{ display: block; position: relative; }`,
   'exports': {
     components: {
       Content: _content.default,
@@ -32354,7 +32397,7 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<sidemenu expr8649></sidemenu><content expr8650></content>', [{
+    return template('<sidemenu expr12435></sidemenu><content expr12436></content>', [{
       'type': bindingTypes.TAG,
       'getComponent': getComponent,
       'evaluate': function (scope) {
@@ -32374,8 +32417,8 @@ var _default = {
           return scope.props.FavoriteList;
         }
       }],
-      'redundantAttribute': 'expr8649',
-      'selector': '[expr8649]'
+      'redundantAttribute': 'expr12435',
+      'selector': '[expr12435]'
     }, {
       'type': bindingTypes.TAG,
       'getComponent': getComponent,
@@ -32396,8 +32439,8 @@ var _default = {
           return scope.props.FavoriteList;
         }
       }],
-      'redundantAttribute': 'expr8650',
-      'selector': '[expr8650]'
+      'redundantAttribute': 'expr12436',
+      'selector': '[expr12436]'
     }]);
   },
   'name': 'app'
@@ -32433,7 +32476,7 @@ function parseHash() {
 }
 
 var _default = {
-  'css': `content,[is="content"]{ position: absolute; left: 300px; right: 0; top: 0; bottom: 0; width: auto; height: auto; padding: 64px; padding-bottom: 16px; overflow-y: scroll; }`,
+  'css': `content,[is="content"]{ display: block; margin-left: 300px; padding: 16px; } @media screen and (min-width:1500px) and (max-width:1920px) { content,[is="content"]{ padding: 64px; } } content,[is="content"]{ padding-bottom: 0; }`,
   'exports': {
     components: {
       Rankers: _rankers.default,
@@ -32461,9 +32504,9 @@ var _default = {
           case 'cup':
             state.type = 'rankers';
             state.currentCup = cups.find(data => data.id == hashData.arg[0]);
-            state.cupIndex = hashData.arg[0] || 0;
-            state.dayIndex = hashData.arg[1] || 0;
-            state.teamIndex = hashData.arg[2] || 0;
+            state.cupIndex = hashData.arg[0];
+            state.dayIndex = hashData.arg[1];
+            state.teamIndex = hashData.arg[2];
             this.update();
             break;
 
@@ -32487,13 +32530,13 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<mainpage expr8651></mainpage><rankers expr8652></rankers><userdata expr8653></userdata>', [{
+    return template('<mainpage expr12441></mainpage><rankers expr12442></rankers><userdata expr12443></userdata>', [{
       'type': bindingTypes.IF,
       'evaluate': function (scope) {
         return scope.state.type === 'home';
       },
-      'redundantAttribute': 'expr8651',
-      'selector': '[expr8651]',
+      'redundantAttribute': 'expr12441',
+      'selector': '[expr12441]',
       'template': template(null, [{
         'type': bindingTypes.TAG,
         'getComponent': getComponent,
@@ -32508,8 +32551,8 @@ var _default = {
       'evaluate': function (scope) {
         return scope.state.type === 'rankers';
       },
-      'redundantAttribute': 'expr8652',
-      'selector': '[expr8652]',
+      'redundantAttribute': 'expr12442',
+      'selector': '[expr12442]',
       'template': template(null, [{
         'type': bindingTypes.TAG,
         'getComponent': getComponent,
@@ -32554,8 +32597,8 @@ var _default = {
       'evaluate': function (scope) {
         return scope.state.type === 'user';
       },
-      'redundantAttribute': 'expr8653',
-      'selector': '[expr8653]',
+      'redundantAttribute': 'expr12443',
+      'selector': '[expr12443]',
       'template': template(null, [{
         'type': bindingTypes.TAG,
         'getComponent': getComponent,
@@ -32590,10 +32633,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _default = {
-  'css': `loading,[is="loading"]{ width: 100%; height: 100%; position: absolute; background: white; left: 0; top: 0; opacity: 1; transition: opacity 0s; pointer-events: auto; z-index: 10; display: inline; } loading.hidden,[is="loading"].hidden{ opacity: 0; transition: opacity 0.3s; pointer-events: none; } loading>div,[is="loading"]>div{ flex: 0 1 auto; flex-direction: column; flex-grow: 1; flex-shrink: 0; flex-basis: 25%; max-width: 25%; height: 200px; align-items: center; justify-content: center; position: absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto auto; display: flex; } loading .line-spin-fade-loader,[is="loading"] .line-spin-fade-loader{ transform: scale(1.5); } loading .line-spin-fade-loader>div,[is="loading"] .line-spin-fade-loader>div{ background-color: gray; }`,
+  'css': `loading,[is="loading"]{ width: 100%; height: 100%; position: absolute; background: white; left: 0; top: 0; opacity: 1; transition: opacity 0s; pointer-events: auto; z-index: 10; display: block; } loading.hidden,[is="loading"].hidden{ opacity: 0; transition: opacity 0.3s; pointer-events: none; } loading .center-wrapper,[is="loading"] .center-wrapper{ width: 300px; height: 95vh; position: absolute; left: 0; top: 0; right: 0; margin: 0 auto; } loading .center-wrapper>div,[is="loading"] .center-wrapper>div{ flex: 0 1 auto; flex-direction: column; flex-grow: 1; flex-shrink: 0; flex-basis: 25%; max-width: 25%; height: 200px; align-items: center; justify-content: center; position: absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto auto; display: flex; } loading .line-spin-fade-loader,[is="loading"] .line-spin-fade-loader{ transform: scale(1.5); } loading .line-spin-fade-loader>div,[is="loading"] .line-spin-fade-loader>div{ background-color: gray; }`,
   'exports': null,
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<div><div class="line-spin-fade-loader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>', []);
+    return template('<div class="center-wrapper"><div><div class="line-spin-fade-loader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div></div>', []);
   },
   'name': 'loading'
 };
@@ -32661,7 +32704,7 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<div expr8673><img expr8674 class="icon"/><div class="favorite">★</div></div><a expr8675 class="hidden-anker"><div expr8676 class="rank"><!----></div><div expr8677 class="name"><!----></div><div expr8678 class="point"><!----></div></a>', [{
+    return template('<div expr12463><img expr12464 class="icon"/><div class="favorite">★</div></div><a expr12465 class="hidden-anker"><div expr12466 class="rank"><!----></div><div expr12467 class="name"><!----></div><div expr12468 class="point"><!----></div></a>', [{
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'class',
@@ -32670,8 +32713,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr8673',
-      'selector': '[expr8673]',
+      'redundantAttribute': 'expr12463',
+      'selector': '[expr12463]',
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'class',
@@ -32686,8 +32729,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr8674',
-      'selector': '[expr8674]',
+      'redundantAttribute': 'expr12464',
+      'selector': '[expr12464]',
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'src',
@@ -32696,8 +32739,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr8675',
-      'selector': '[expr8675]',
+      'redundantAttribute': 'expr12465',
+      'selector': '[expr12465]',
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'href',
@@ -32706,8 +32749,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr8676',
-      'selector': '[expr8676]',
+      'redundantAttribute': 'expr12466',
+      'selector': '[expr12466]',
       'expressions': [{
         'type': expressionTypes.TEXT,
         'childNodeIndex': 0,
@@ -32716,8 +32759,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr8677',
-      'selector': '[expr8677]',
+      'redundantAttribute': 'expr12467',
+      'selector': '[expr12467]',
       'expressions': [{
         'type': expressionTypes.TEXT,
         'childNodeIndex': 0,
@@ -32726,8 +32769,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr8678',
-      'selector': '[expr8678]',
+      'redundantAttribute': 'expr12468',
+      'selector': '[expr12468]',
       'expressions': [{
         'type': expressionTypes.TEXT,
         'childNodeIndex': 0,
@@ -32755,7 +32798,7 @@ var _loading = _interopRequireDefault(require("./loading.riot"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _default = {
-  'css': `rankers .cup-title,[is="rankers"] .cup-title{ font-family: sans-serif; font-size: 25pt; } rankers hr,[is="rankers"] hr{ background-color: gray; } rankers .search-box,[is="rankers"] .search-box{ width: 100%; padding-left: auto; padding-right: auto; padding-top: 25px; padding-bottom: 25px; font-size: 20pt; box-sizing: border-box; } rankers .search-box>.inline-input,[is="rankers"] .search-box>.inline-input{ background-color: #ccc; box-sizing: border-box; border-radius: 15px; display: table; width: 100%; padding: 5px; max-width: 500px; } rankers .search-box>.inline-input>i,[is="rankers"] .search-box>.inline-input>i{ display: table-cell; width: 46px; font-size: 28pt; vertical-align: middle; color: #eee; padding-left: 15px; } rankers .search-box>.inline-input>.input,[is="rankers"] .search-box>.inline-input>.input{ display: table-cell; width: auto; } rankers .toggle-switch,[is="rankers"] .toggle-switch{ max-width: 600px; width: 100%; border: solid 1px #ccc; border-radius: 5px; overflow: hidden; box-sizing: border-box; display: table; } rankers .toggle-button,[is="rankers"] .toggle-button{ background-color: white; display: inline-block; width: auto; box-sizing: border-box; display: table-cell; text-align: center; vertical-align: middle; border-right: solid 1px #ccc; cursor: pointer; height: 50px; } rankers .toggle-button:hover,[is="rankers"] .toggle-button:hover{ background-color: #eeeeee; } rankers .toggle-button.active,[is="rankers"] .toggle-button.active{ background-color: #eee; font-weight: bold; } rankers .line-spin-fade-loader,[is="rankers"] .line-spin-fade-loader{ width: 0; height: 0; position: absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto auto; transform: scale(2); } rankers .line-spin-fade-loader>div,[is="rankers"] .line-spin-fade-loader>div{ background: black; } rankers .board-datas,[is="rankers"] .board-datas{ column-count: 1; text-align: center; } rankers .disabled,[is="rankers"] .disabled{ background-color: #ccc !important; color: #bbb !important; cursor: default; } @media screen and (min-width:1024px) and (max-width:1300px) { rankers .board-datas,[is="rankers"] .board-datas{ column-count: 2; } } @media screen and (min-width:1300px) and (max-width:1500px) { rankers .board-datas,[is="rankers"] .board-datas{ column-count: 3; } } @media screen and (min-width:1500px) and (max-width:1920px) { rankers .board-datas,[is="rankers"] .board-datas{ column-count: 4; } } @media screen and (min-width:1920px) { rankers .board-datas,[is="rankers"] .board-datas{ column-count: 5; } }`,
+  'css': `rankers,[is="rankers"]{ display: block; min-height: 100vh; position: relative; } rankers .cup-title,[is="rankers"] .cup-title{ font-family: sans-serif; font-size: 25pt; } rankers hr,[is="rankers"] hr{ background-color: gray; } rankers .search-box,[is="rankers"] .search-box{ width: 100%; padding-left: auto; padding-right: auto; padding-top: 25px; padding-bottom: 25px; font-size: 20pt; box-sizing: border-box; } rankers .search-box>.inline-input,[is="rankers"] .search-box>.inline-input{ background-color: #ccc; box-sizing: border-box; border-radius: 15px; display: table; width: 100%; padding: 5px; max-width: 500px; } rankers .search-box>.inline-input>i,[is="rankers"] .search-box>.inline-input>i{ display: table-cell; width: 46px; font-size: 28pt; vertical-align: middle; color: #eee; padding-left: 15px; } rankers .search-box>.inline-input>.input,[is="rankers"] .search-box>.inline-input>.input{ display: table-cell; width: auto; } rankers .toggle-switch,[is="rankers"] .toggle-switch{ max-width: 600px; width: 100%; border: solid 1px #ccc; border-radius: 5px; overflow: hidden; box-sizing: border-box; display: table; } rankers .toggle-button,[is="rankers"] .toggle-button{ background-color: white; display: inline-block; width: auto; box-sizing: border-box; display: table-cell; text-align: center; vertical-align: middle; border-right: solid 1px #ccc; cursor: pointer; height: 50px; } rankers .toggle-button:hover,[is="rankers"] .toggle-button:hover{ background-color: #eeeeee; } rankers .toggle-button.active,[is="rankers"] .toggle-button.active{ background-color: #eee; font-weight: bold; } rankers .line-spin-fade-loader,[is="rankers"] .line-spin-fade-loader{ width: 0; height: 0; position: absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto auto; transform: scale(2); } rankers .line-spin-fade-loader>div,[is="rankers"] .line-spin-fade-loader>div{ background: black; } rankers .board-datas,[is="rankers"] .board-datas{ column-count: 1; text-align: center; } rankers .disabled,[is="rankers"] .disabled{ background-color: #ccc !important; color: #bbb !important; cursor: default; } @media screen and (min-width:1024px) and (max-width:1300px) { rankers .board-datas,[is="rankers"] .board-datas{ column-count: 2; } } @media screen and (min-width:1300px) and (max-width:1500px) { rankers .board-datas,[is="rankers"] .board-datas{ column-count: 3; } } @media screen and (min-width:1500px) and (max-width:1920px) { rankers .board-datas,[is="rankers"] .board-datas{ column-count: 4; } } @media screen and (min-width:1920px) { rankers .board-datas,[is="rankers"] .board-datas{ column-count: 5; } }`,
   'exports': {
     components: {
       Loading: _loading.default,
@@ -32852,7 +32895,7 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<loading expr8664></loading><div expr8665 class="cup-title "><!----></div><hr/><div class="search-box "><div class="inline-input "><i class="fas fa-search "></i><div expr8666 class="input " contenteditable></div></div></div><hr/><div expr8667 class="toggle-switch "></div><div expr8669 class="toggle-switch "></div><br/><div expr8671 class="board-datas "></div>', [{
+    return template('<loading expr12444></loading><div expr12445 class="cup-title "><!----></div><hr/><div class="search-box "><div class="inline-input "><i class="fas fa-search "></i><div expr12446 class="input " contenteditable></div></div></div><hr/><div expr12447 class="toggle-switch "></div><div expr12449 class="toggle-switch "></div><br/><div expr12451 class="board-datas "></div>', [{
       'type': bindingTypes.TAG,
       'getComponent': getComponent,
       'evaluate': function (scope) {
@@ -32866,11 +32909,11 @@ var _default = {
           return [scope.state.boards ? 'hidden' : '', ' '].join('');
         }
       }],
-      'redundantAttribute': 'expr8664',
-      'selector': '[expr8664]'
+      'redundantAttribute': 'expr12444',
+      'selector': '[expr12444]'
     }, {
-      'redundantAttribute': 'expr8665',
-      'selector': '[expr8665]',
+      'redundantAttribute': 'expr12445',
+      'selector': '[expr12445]',
       'expressions': [{
         'type': expressionTypes.TEXT,
         'childNodeIndex': 0,
@@ -32879,8 +32922,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr8666',
-      'selector': '[expr8666]',
+      'redundantAttribute': 'expr12446',
+      'selector': '[expr12446]',
       'expressions': [{
         'type': expressionTypes.EVENT,
         'name': 'onkeyup',
@@ -32893,9 +32936,9 @@ var _default = {
       'evaluate': function (scope) {
         return scope.state.boards;
       },
-      'redundantAttribute': 'expr8667',
-      'selector': '[expr8667]',
-      'template': template('<div expr8668></div>', [{
+      'redundantAttribute': 'expr12447',
+      'selector': '[expr12447]',
+      'template': template('<div expr12448></div>', [{
         'type': bindingTypes.EACH,
         'getKey': null,
         'condition': null,
@@ -32926,8 +32969,8 @@ var _default = {
             }
           }]
         }]),
-        'redundantAttribute': 'expr8668',
-        'selector': '[expr8668]',
+        'redundantAttribute': 'expr12448',
+        'selector': '[expr12448]',
         'itemName': 'board',
         'indexName': 'day',
         'evaluate': function (scope) {
@@ -32939,9 +32982,9 @@ var _default = {
       'evaluate': function (scope) {
         return scope.state.boards;
       },
-      'redundantAttribute': 'expr8669',
-      'selector': '[expr8669]',
-      'template': template('<div expr8670></div>', [{
+      'redundantAttribute': 'expr12449',
+      'selector': '[expr12449]',
+      'template': template('<div expr12450></div>', [{
         'type': bindingTypes.EACH,
         'getKey': null,
         'condition': null,
@@ -32972,8 +33015,8 @@ var _default = {
             }
           }]
         }]),
-        'redundantAttribute': 'expr8670',
-        'selector': '[expr8670]',
+        'redundantAttribute': 'expr12450',
+        'selector': '[expr12450]',
         'itemName': 'team',
         'indexName': 'idx',
         'evaluate': function (scope) {
@@ -32985,9 +33028,9 @@ var _default = {
       'evaluate': function (scope) {
         return scope.state.boards;
       },
-      'redundantAttribute': 'expr8671',
-      'selector': '[expr8671]',
-      'template': template('<ranker expr8672></ranker>', [{
+      'redundantAttribute': 'expr12451',
+      'selector': '[expr12451]',
+      'template': template('<ranker expr12452></ranker>', [{
         'type': bindingTypes.EACH,
         'getKey': null,
         'condition': null,
@@ -33012,8 +33055,8 @@ var _default = {
             }
           }]
         }]),
-        'redundantAttribute': 'expr8672',
-        'selector': '[expr8672]',
+        'redundantAttribute': 'expr12452',
+        'selector': '[expr12452]',
         'itemName': 'ranker',
         'indexName': null,
         'evaluate': function (scope) {
@@ -33033,7 +33076,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _default = {
-  'css': `sidemenu,[is="sidemenu"]{ width: 300px; height: 100%; top: 0; left: 0; position: absolute; background-color: #33343a; color: white; text-align: center; } sidemenu .logo,[is="sidemenu"] .logo{ width: 80%; } sidemenu .box,[is="sidemenu"] .box{ width: 100%; border-bottom: solid 1px #2c2d31; padding-top: 3px; } sidemenu .cup,[is="sidemenu"] .cup{ text-align: left; color: gray; cursor: pointer; display: block; width: 100%; padding-left: 10px; padding-right: 10px; margin-top: 3px; box-sizing: border-box; } sidemenu .cup:hover,[is="sidemenu"] .cup:hover{ color: white; } sidemenu .cup.active,[is="sidemenu"] .cup.active{ color:white; font-weight: bold; } sidemenu .gray,[is="sidemenu"] .gray{ background-color: #363841; } sidemenu .button,[is="sidemenu"] .button{ padding: 18px; padding-left: 24px; padding-right: 24px; background-color: #2d81d7; border: none; border-radius: 5px; color: white; font-weight: bold; font-size: 13pt; cursor: pointer; } sidemenu .button:disabled,[is="sidemenu"] .button:disabled{ cursor: default; background-color: #ccc; }`,
+  'css': `sidemenu,[is="sidemenu"]{ width: 300px; height: auto; top: 0; left: 0; position: absolute; background-color: #33343a; color: white; text-align: center; display: block; bottom: 0; margin: 0 auto; } sidemenu .logo,[is="sidemenu"] .logo{ width: 80%; } sidemenu .box,[is="sidemenu"] .box{ width: 100%; border-bottom: solid 1px #2c2d31; padding-top: 3px; } sidemenu .cup,[is="sidemenu"] .cup{ text-align: left; color: gray; cursor: pointer; display: block; width: 100%; padding-left: 10px; padding-right: 10px; margin-top: 3px; box-sizing: border-box; } sidemenu .cup:hover,[is="sidemenu"] .cup:hover{ color: white; } sidemenu .cup.active,[is="sidemenu"] .cup.active{ color: white; font-weight: bold; } sidemenu .gray,[is="sidemenu"] .gray{ background-color: #363841; } sidemenu .button,[is="sidemenu"] .button{ padding: 18px; padding-left: 24px; padding-right: 24px; background-color: #2d81d7; border: none; border-radius: 5px; color: white; font-weight: bold; font-size: 13pt; cursor: pointer; } sidemenu .button:disabled,[is="sidemenu"] .button:disabled{ cursor: default; background-color: #ccc; }`,
   'exports': {
     async onMounted(props) {
       const {
@@ -33047,9 +33090,9 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<div class="box gray"><a href="#"><img src="img/logo.png" class="logo"/></a></div><div class="box"><br/><a expr8654><button expr8655 id="nowCupButton" class="button"><i class="fas fa-running"></i>\r\n            現在開催中の魔導杯へ</button><br/></a><br/></div><div class="box gray"><h3><i class="fas fa-trophy"></i> 魔導杯一覧</h3><div id="cupList"><a expr8656 class="cup"></a></div><br/></div>', [{
-      'redundantAttribute': 'expr8654',
-      'selector': '[expr8654]',
+    return template('<div class="box gray"><a href="#"><img src="img/logo.png" class="logo"/></a></div><div class="box"><br/><a expr12437><button expr12438 id="nowCupButton" class="button"><i class="fas fa-running"></i>\r\n            現在開催中の魔導杯へ</button><br/></a><br/></div><div class="box gray"><h3><i class="fas fa-trophy"></i> 魔導杯一覧</h3><div id="cupList"><a expr12439 class="cup"></a></div><br/></div>', [{
+      'redundantAttribute': 'expr12437',
+      'selector': '[expr12437]',
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'href',
@@ -33058,8 +33101,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr8655',
-      'selector': '[expr8655]',
+      'redundantAttribute': 'expr12438',
+      'selector': '[expr12438]',
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'disabled',
@@ -33071,7 +33114,7 @@ var _default = {
       'type': bindingTypes.EACH,
       'getKey': null,
       'condition': null,
-      'template': template('<div expr8657><!----></div>', [{
+      'template': template('<div expr12440><!----></div>', [{
         'expressions': [{
           'type': expressionTypes.ATTRIBUTE,
           'name': 'href',
@@ -33080,8 +33123,8 @@ var _default = {
           }
         }]
       }, {
-        'redundantAttribute': 'expr8657',
-        'selector': '[expr8657]',
+        'redundantAttribute': 'expr12440',
+        'selector': '[expr12440]',
         'expressions': [{
           'type': expressionTypes.TEXT,
           'childNodeIndex': 0,
@@ -33090,8 +33133,8 @@ var _default = {
           }
         }]
       }]),
-      'redundantAttribute': 'expr8656',
-      'selector': '[expr8656]',
+      'redundantAttribute': 'expr12439',
+      'selector': '[expr12439]',
       'itemName': 'cup',
       'indexName': null,
       'evaluate': function (scope) {
@@ -33112,16 +33155,19 @@ exports.default = void 0;
 
 var _usergraf = _interopRequireDefault(require("./viewer/usergraf.riot"));
 
+var _speedmeter = _interopRequireDefault(require("./viewer/speedmeter.riot"));
+
 var _loading = _interopRequireDefault(require("./loading.riot"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _default = {
-  'css': `userdata .title-data,[is="userdata"] .title-data{ height: 100px; display: flex; align-items: center; } userdata .title-data .icon,[is="userdata"] .title-data .icon{ height: 50px; display: inline-block; border: solid 2px #ccc; border-radius: 4px; box-sizing: border-box; } userdata .title-data .name,[is="userdata"] .title-data .name{ font-size: 43px; display: inline-block; margin-left: 9px; } userdata .right,[is="userdata"] .right{ text-align: right; margin-top: -31px; }`,
+  'css': `userdata,[is="userdata"]{ position: relative; display: block; } userdata .title-data,[is="userdata"] .title-data{ height: 100px; display: flex; align-items: center; } userdata .title-data .icon,[is="userdata"] .title-data .icon{ height: 50px; display: inline-block; border: solid 2px #ccc; border-radius: 4px; box-sizing: border-box; } userdata .title-data .name,[is="userdata"] .title-data .name{ font-size: 43px; display: inline-block; margin-left: 9px; } userdata .right,[is="userdata"] .right{ text-align: right; margin-top: -31px; } userdata .width-full,[is="userdata"] .width-full{ width: 100%; } userdata .toggle-button:hover,[is="userdata"] .toggle-button:hover{ background-color: #eeeeee; } userdata .toggle-button.active,[is="userdata"] .toggle-button.active{ background-color: #eee; font-weight: bold; } userdata .disabled,[is="userdata"] .disabled{ background-color: #ccc !important; color: #bbb !important; cursor: default; } userdata .toggle-switch,[is="userdata"] .toggle-switch{ max-width: 600px; width: 100%; border: solid 1px #ccc; border-radius: 5px; overflow: hidden; box-sizing: border-box; display: table; } userdata .toggle-button,[is="userdata"] .toggle-button{ background-color: white; display: inline-block; width: auto; box-sizing: border-box; display: table-cell; text-align: center; vertical-align: middle; border-right: solid 1px #ccc; cursor: pointer; height: 50px; } userdata .width-half,[is="userdata"] .width-half,userdata .width-quarter,[is="userdata"] .width-quarter{ width: 100%; box-sizing: border-box; display: inline-block; } @media screen and (min-width:1024px) { userdata .width-half,[is="userdata"] .width-half{ width: 50%; } userdata .width-quarter,[is="userdata"] .width-quarter{ width: 25%; } }`,
   'exports': {
     components: {
       Usergraf: _usergraf.default,
-      Loading: _loading.default
+      Loading: _loading.default,
+      Speedmeter: _speedmeter.default
     },
 
     async onMounted(props, state) {
@@ -33189,15 +33235,55 @@ var _default = {
           teams,
           img
         };
+        this.state.dayPoints = [null, 0, 1, 2, 3].map((day, i) => {
+          let data = {
+            name: ['総合', '1日目', '2日目', '3日目', '4日目'][i],
+            points: this.getDayDatas(day)
+          };
+          let p = -1;
+          let sum = 0;
+          data.points.forEach(d => {
+            if (d.speed && d.speed > p) {
+              p = d.speed;
+              data.maxSpeed = d;
+            }
+
+            sum += d.speed ? d.speed : 0;
+          });
+          data.average = sum / data.points.length;
+          return data;
+        });
+        this.state.currentPoints = this.state.dayPoints[0];
         this.update();
-      } else {
-        console.log(this);
       }
+    },
+
+    getDayDatas(day) {
+      if (day === null) return this.state.timeDatas;
+      let arr = [0, 8, 32, 56, 72];
+      return this.state.timeDatas.slice(arr[day], arr[day + 1]);
+    },
+
+    toggleDay(e) {
+      let {
+        props,
+        state
+      } = this;
+      let {
+        target
+      } = e;
+      if (target.classList.contains('active')) return;
+      if (!state.currentPoints) return;
+      let dayIndex = Number(target.dataset.idx);
+      if (!state.dayPoints[dayIndex]) return;
+      state.currentPoints = state.dayPoints[dayIndex];
+      console.log(state.currentPoints);
+      this.update();
     }
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<loading expr8658></loading><div expr8659 class="view"></div>', [{
+    return template('<loading expr12453></loading><div expr12454 class="view"></div>', [{
       'type': bindingTypes.TAG,
       'getComponent': getComponent,
       'evaluate': function (scope) {
@@ -33211,18 +33297,18 @@ var _default = {
           return [scope.state.timeDatas ? 'hidden' : '', ' '].join('');
         }
       }],
-      'redundantAttribute': 'expr8658',
-      'selector': '[expr8658]'
+      'redundantAttribute': 'expr12453',
+      'selector': '[expr12453]'
     }, {
       'type': bindingTypes.IF,
       'evaluate': function (scope) {
         return scope.state.timeDatas;
       },
-      'redundantAttribute': 'expr8659',
-      'selector': '[expr8659]',
-      'template': template('<div class="title-data"><img expr8660 class="icon" alt/><div expr8661 class="name"><!----></div></div><div expr8662 class="right"><!----></div><hr/><usergraf expr8663></usergraf>', [{
-        'redundantAttribute': 'expr8660',
-        'selector': '[expr8660]',
+      'redundantAttribute': 'expr12454',
+      'selector': '[expr12454]',
+      'template': template('<div class="title-data"><img expr12455 class="icon" alt/><div expr12456 class="name"><!----></div></div><div expr12457 class="right"><!----></div><hr/><div class="toggle-switch "><div expr12458></div></div><br/><usergraf expr12459 class="width-full"></usergraf><div class="width-full" style="text-align: center"><h4 expr12460><!----></h4><h4 expr12461><!----></h4></div><speedmeter expr12462></speedmeter>', [{
+        'redundantAttribute': 'expr12455',
+        'selector': '[expr12455]',
         'expressions': [{
           'type': expressionTypes.ATTRIBUTE,
           'name': 'src',
@@ -33231,8 +33317,8 @@ var _default = {
           }
         }]
       }, {
-        'redundantAttribute': 'expr8661',
-        'selector': '[expr8661]',
+        'redundantAttribute': 'expr12456',
+        'selector': '[expr12456]',
         'expressions': [{
           'type': expressionTypes.TEXT,
           'childNodeIndex': 0,
@@ -33241,8 +33327,8 @@ var _default = {
           }
         }]
       }, {
-        'redundantAttribute': 'expr8662',
-        'selector': '[expr8662]',
+        'redundantAttribute': 'expr12457',
+        'selector': '[expr12457]',
         'expressions': [{
           'type': expressionTypes.TEXT,
           'childNodeIndex': 0,
@@ -33250,6 +33336,44 @@ var _default = {
             return scope.state.cup.title;
           }
         }]
+      }, {
+        'type': bindingTypes.EACH,
+        'getKey': null,
+        'condition': null,
+        'template': template('<!---->', [{
+          'expressions': [{
+            'type': expressionTypes.TEXT,
+            'childNodeIndex': 0,
+            'evaluate': function (scope) {
+              return scope.data.name;
+            }
+          }, {
+            'type': expressionTypes.EVENT,
+            'name': 'onclick',
+            'evaluate': function (scope) {
+              return scope.toggleDay;
+            }
+          }, {
+            'type': expressionTypes.ATTRIBUTE,
+            'name': 'class',
+            'evaluate': function (scope) {
+              return ['toggle-button ', scope.state.currentPoints === scope.data ? 'active' : '', ' ', !scope.data ? 'disabled' : ''].join('');
+            }
+          }, {
+            'type': expressionTypes.ATTRIBUTE,
+            'name': 'data-idx',
+            'evaluate': function (scope) {
+              return scope.day;
+            }
+          }]
+        }]),
+        'redundantAttribute': 'expr12458',
+        'selector': '[expr12458]',
+        'itemName': 'data',
+        'indexName': 'day',
+        'evaluate': function (scope) {
+          return scope.state.dayPoints;
+        }
       }, {
         'type': bindingTypes.TAG,
         'getComponent': getComponent,
@@ -33263,16 +33387,150 @@ var _default = {
           'evaluate': function (scope) {
             return scope.state;
           }
+        }, {
+          'type': expressionTypes.ATTRIBUTE,
+          'name': 'points',
+          'evaluate': function (scope) {
+            return scope.state.currentPoints.points;
+          }
+        }, {
+          'type': expressionTypes.ATTRIBUTE,
+          'name': 'class',
+          'evaluate': function () {
+            return 'width-full';
+          }
         }],
-        'redundantAttribute': 'expr8663',
-        'selector': '[expr8663]'
+        'redundantAttribute': 'expr12459',
+        'selector': '[expr12459]'
+      }, {
+        'redundantAttribute': 'expr12460',
+        'selector': '[expr12460]',
+        'expressions': [{
+          'type': expressionTypes.TEXT,
+          'childNodeIndex': 0,
+          'evaluate': function (scope) {
+            return ['最高時速 : ', scope.state.currentPoints.maxSpeed.speed, ' Pt/hours (', scope.state.currentPoints.maxSpeed.date.toLocaleTimeString().split(':').slice(0, 2).join(':'), ')'].join('');
+          }
+        }]
+      }, {
+        'redundantAttribute': 'expr12461',
+        'selector': '[expr12461]',
+        'expressions': [{
+          'type': expressionTypes.TEXT,
+          'childNodeIndex': 0,
+          'evaluate': function (scope) {
+            return ['平均時速 : ', scope.state.currentPoints.average.toFixed(1), ' Pt/hours'].join('');
+          }
+        }]
+      }, {
+        'type': bindingTypes.EACH,
+        'getKey': null,
+        'condition': null,
+        'template': template(null, [{
+          'type': bindingTypes.TAG,
+          'getComponent': getComponent,
+          'evaluate': function (scope) {
+            return 'speedmeter';
+          },
+          'slots': [],
+          'attributes': [{
+            'type': expressionTypes.ATTRIBUTE,
+            'name': 'title',
+            'evaluate': function (scope) {
+              return scope.data.name;
+            }
+          }, {
+            'type': expressionTypes.ATTRIBUTE,
+            'name': 'max',
+            'evaluate': function (scope) {
+              return scope.data.maxSpeed.speed;
+            }
+          }, {
+            'type': expressionTypes.ATTRIBUTE,
+            'name': 'v',
+            'evaluate': function (scope) {
+              return scope.data.average;
+            }
+          }, {
+            'type': expressionTypes.ATTRIBUTE,
+            'name': 'class',
+            'evaluate': function (scope) {
+              return scope.day === 0 ? 'width-full' : 'width-quarter';
+            }
+          }]
+        }]),
+        'redundantAttribute': 'expr12462',
+        'selector': '[expr12462]',
+        'itemName': 'data',
+        'indexName': 'day',
+        'evaluate': function (scope) {
+          return scope.state.dayPoints;
+        }
       }])
     }]);
   },
   'name': 'userdata'
 };
 exports.default = _default;
-},{"./loading.riot":38,"./viewer/usergraf.riot":44}],44:[function(require,module,exports){
+},{"./loading.riot":38,"./viewer/speedmeter.riot":44,"./viewer/usergraf.riot":45}],44:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _c = require("c3");
+
+var _default = {
+  'css': `speedmeter,[is="speedmeter"]{ text-align: center; } speedmeter .title,[is="speedmeter"] .title{ text-align: center; font-size: 15pt; font-weight: bold; } speedmeter #meter,[is="speedmeter"] #meter{ margin-top: -20px; }`,
+  'exports': {
+    onMounted(props, state) {
+      let {
+        title,
+        max,
+        v,
+        min
+      } = props;
+      max = max || 0;
+      min = min || 0;
+      let chart = (0, _c.generate)({
+        bindto: this.$('#meter'),
+        data: {
+          columns: [['平均時速', v]],
+          type: 'gauge'
+        },
+        gauge: {
+          min,
+          max
+        },
+        color: {
+          pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'],
+          threshold: {
+            values: [1, 2, 3, 4].map(p => max / 4 * p)
+          }
+        }
+      });
+    }
+
+  },
+  'template': function (template, expressionTypes, bindingTypes, getComponent) {
+    return template('<div expr12469 class="title"><!----></div><div id="meter"></div>', [{
+      'redundantAttribute': 'expr12469',
+      'selector': '[expr12469]',
+      'expressions': [{
+        'type': expressionTypes.TEXT,
+        'childNodeIndex': 0,
+        'evaluate': function (scope) {
+          return scope.props.title;
+        }
+      }]
+    }]);
+  },
+  'name': 'speedmeter'
+};
+exports.default = _default;
+},{"c3":1}],45:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -33294,13 +33552,16 @@ var _default = {
         teams,
         timeDatas
       } = props.data;
+      let {
+        points
+      } = props;
       let chart = (0, _c.generate)({
         bindto: '#chart',
         data: {
           x: 'x',
-          columns: [['x', ...timeDatas.map(d => d.date)], ['Pt', ...timeDatas.map((data, i) => {
+          columns: [['x', ...points.map(d => d.date)], ['Pt', ...points.map((data, i) => {
             return data.pt;
-          })], ['Pt/hours', ...timeDatas.map(data => data.speed)]],
+          })], ['Pt/hours', ...points.map(data => data.speed)]],
           axes: {
             'Pt/hours': 'y2'
           },
@@ -33333,7 +33594,6 @@ var _default = {
           connectNull: true
         }
       });
-      window.chart = chart;
     },
 
     onMounted() {

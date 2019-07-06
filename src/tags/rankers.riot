@@ -25,6 +25,12 @@
         </ranker>
     </div>
     <style scoped>
+         :host {
+            display: block;
+            min-height: 100vh;
+            position: relative;
+        }
+        
         .cup-title {
             font-family: sans-serif;
             font-size: 25pt;
@@ -133,28 +139,24 @@
         }
         
         @media screen and (min-width:1024px) and (max-width:1300px) {
-            /*　画面サイズが1024pxからはここを読み込む　*/
             .board-datas {
                 column-count: 2;
             }
         }
         
         @media screen and (min-width:1300px) and (max-width:1500px) {
-            /*　画面サイズが1024pxからはここを読み込む　*/
             .board-datas {
                 column-count: 3;
             }
         }
         
         @media screen and (min-width:1500px) and (max-width:1920px) {
-            /*　画面サイズが1024pxからはここを読み込む　*/
             .board-datas {
                 column-count: 4;
             }
         }
         
         @media screen and (min-width:1920px) {
-            /*　画面サイズが1024pxからはここを読み込む　*/
             .board-datas {
                 column-count: 5;
             }

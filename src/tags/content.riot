@@ -1,16 +1,19 @@
 <content>
     <style scoped>
          :host {
-            position: absolute;
-            left: 300px;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            width: auto;
-            height: auto;
-            padding: 64px;
-            padding-bottom: 16px;
-            overflow-y: scroll;
+            display: block;
+            margin-left: 300px;
+            padding: 16px;
+        }
+        
+        @media screen and (min-width:1500px) and (max-width:1920px) {
+             :host {
+                padding: 64px;
+            }
+        }
+        
+         :host {
+            padding-bottom: 0;
         }
     </style>
     <script>
@@ -43,9 +46,9 @@
                         case 'cup':
                             state.type = 'rankers';
                             state.currentCup = cups.find(data => data.id == hashData.arg[0]);
-                            state.cupIndex = hashData.arg[0] || 0;
-                            state.dayIndex = hashData.arg[1] || 0;
-                            state.teamIndex = hashData.arg[2] || 0;
+                            state.cupIndex = hashData.arg[0];
+                            state.dayIndex = hashData.arg[1];
+                            state.teamIndex = hashData.arg[2];
                             this.update();
                             break
                         case 'user':

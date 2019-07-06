@@ -14,16 +14,19 @@
                     teams,
                     timeDatas
                 } = props.data;
+                let {
+                    points
+                } = props;
                 let chart = generate({
                     bindto: '#chart',
                     data: {
                         x: 'x',
                         columns: [
-                            ['x', ...timeDatas.map(d => d.date)],
-                            ['Pt', ...timeDatas.map((data, i) => {
+                            ['x', ...points.map(d => d.date)],
+                            ['Pt', ...points.map((data, i) => {
                                 return data.pt;
                             })],
-                            ['Pt/hours', ...timeDatas.map(data => data.speed)]
+                            ['Pt/hours', ...points.map(data => data.speed)]
                         ],
                         axes: {
                             'Pt/hours': 'y2'
@@ -57,7 +60,6 @@
                         connectNull: true
                     }
                 });
-                window.chart = chart;
             },
             onMounted() {
                 this.update();
