@@ -1,34 +1,26 @@
 <rankers>
-    <div class="loadding {state.board ? 'hidden' : ''}">
-        <div class="line-spin-fade-loader">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
-    <div class="cup-title">{props.cup.title}</div>
+    <loading class="{state.boards ? 'hidden' : ''} ">
+    </loading>
+    <div class="cup-title ">{props.cup.title}</div>
     <hr>
-    <div class="search-box">
-        <div class="inline-input">
-            <i class="fas fa-search"></i>
-            <div class="input" onkeyup={searchChange} contenteditable></div>
+    <div class="search-box ">
+        <div class="inline-input ">
+            <i class="fas fa-search "></i>
+            <div class="input " onkeyup={searchChange} contenteditable></div>
         </div>
     </div>
     <hr>
-    <div if={state.board} class="toggle-switch">
-        <div onclick={toggleTeam} class="toggle-button {team.isActive ? 'active' : ''}" each={team in state.board.teams}
-            teamid="{team.id}">
+    <div if={state.boards} class="toggle-switch ">
+        <div onclick={toggleDay} each={(board,day) in state.boards} class="toggle-button {state.currentBoard===board ? 'active' : ''} " data-idx={day}>{day+1}日目</div>
+    </div>
+    <div if={state.boards} class="toggle-switch ">
+        <div onclick={toggleTeam} class="toggle-button {state.currentBoard.currentTeam===team ? 'active' : ''} " each={(team,idx) in state.currentBoard.teams} data-idx="{idx} ">
             {team.name.replace(/チーム/,'')}
         </div>
     </div>
     <br>
-    <div if={state.board} class="board-datas">
-        <ranker data={ranker} each={ranker in state.board.currentTeam.ranks.slice(0,50)} FavoriteList={props.FavoriteList}>
+    <div if={state.boards} class="board-datas ">
+        <ranker data={ranker} each={ranker in state.currentBoard.currentTeam.ranks.slice(0,50)} FavoriteList={props.FavoriteList}>
 
         </ranker>
     </div>
@@ -37,11 +29,11 @@
             font-family: sans-serif;
             font-size: 25pt;
         }
-
+        
         hr {
             background-color: gray;
         }
-
+        
         .search-box {
             width: 100%;
             padding-left: auto;
@@ -51,7 +43,7 @@
             font-size: 20pt;
             box-sizing: border-box;
         }
-
+        
         .search-box>.inline-input {
             background-color: #ccc;
             box-sizing: border-box;
@@ -61,7 +53,7 @@
             padding: 5px;
             max-width: 500px;
         }
-
+        
         .search-box>.inline-input>i {
             display: table-cell;
             width: 46px;
@@ -70,12 +62,12 @@
             color: #eee;
             padding-left: 15px;
         }
-
+        
         .search-box>.inline-input>.input {
             display: table-cell;
             width: auto;
         }
-
+        
         .toggle-switch {
             max-width: 600px;
             width: 100%;
@@ -85,11 +77,11 @@
             box-sizing: border-box;
             display: table;
         }
-
+        
         .toggle-button {
             background-color: white;
             display: inline-block;
-            width: 20%;
+            width: auto;
             box-sizing: border-box;
             display: table-cell;
             text-align: center;
@@ -98,39 +90,21 @@
             cursor: pointer;
             height: 50px;
         }
-
+        /*         
         .toggle-button:last-child {
             border-right: solid 0px;
             width: auto;
-        }
-
+        } */
+        
         .toggle-button:hover {
             background-color: #eeeeee;
         }
-
+        
         .toggle-button.active {
             background-color: #eee;
             font-weight: bold;
         }
-
-        .loadding {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            background: white;
-            left: 0;
-            top: 0;
-            opacity: 1;
-            transition: opacity 0s;
-            pointer-events: auto;
-        }
-
-        .loadding.hidden {
-            opacity: 0;
-            transition: opacity 0.3s;
-            pointer-events: none;
-        }
-
+        
         .line-spin-fade-loader {
             width: 0;
             height: 0;
@@ -142,42 +116,38 @@
             margin: auto auto;
             transform: scale(2);
         }
-
+        
         .line-spin-fade-loader>div {
             background: black;
         }
-
+        
         .board-datas {
             column-count: 1;
             text-align: center;
         }
-
+        
         @media screen and (min-width:1024px) and (max-width:1300px) {
-
             /*　画面サイズが1024pxからはここを読み込む　*/
             .board-datas {
                 column-count: 2;
             }
         }
-
+        
         @media screen and (min-width:1300px) and (max-width:1500px) {
-
             /*　画面サイズが1024pxからはここを読み込む　*/
             .board-datas {
                 column-count: 3;
             }
         }
-
+        
         @media screen and (min-width:1500px) and (max-width:1920px) {
-
             /*　画面サイズが1024pxからはここを読み込む　*/
             .board-datas {
                 column-count: 4;
             }
         }
-
+        
         @media screen and (min-width:1920px) {
-
             /*　画面サイズが1024pxからはここを読み込む　*/
             .board-datas {
                 column-count: 5;
@@ -186,56 +156,92 @@
     </style>
     <script>
         import Ranker from './ranker.riot';
+        import Loading from './loading.riot';
+
         export default {
             components: {
+                Loading,
                 Ranker
-            },
-            async onMounted(props, state) {
-                this.update();
             },
             async onBeforeUpdate(props, state) {
                 let {
                     cup
                 } = props;
-                if (state.cup === cup) return;
-                state.cup = cup;
-                state.board = null;
-                state.board = await cup.getBoardInfomationLast();
-                state.board.teams[0].isActive = true;
-                state.board.currentTeam = state.board.teams[0];
+                if (state.cup !== cup) {
+                    state.cup = cup;
+                    state.boards = null;
+                    state.boards = (await cup.getBoardInfomationAllDaylast()).data;
+                    this.update();
+                }
+                let dayIndex = props.dayindex;
+                if (!state.boards[dayIndex]) dayIndex = 0;
+                state.currentBoard = state.boards[dayIndex];
+                state.boards.forEach(board => {
+                    board.currentTeam = board.teams[0];
+                })
+
+                let teamIndex = props.teamindex
+                if (!state.currentBoard.teams[teamIndex]) teamIndex = 0;
+                state.currentBoard.currentTeam = state.currentBoard.teams[teamIndex];
+
+                location.hash = `#cup/${props.cupindex}/${dayIndex}/${teamIndex}`;
                 this.updateSearchQuery(this.searchText);
+                // update が呼び出され、コンポーネントのテンプレートが更新された直後
+            },
+            async onMounted(props, state) {
                 this.update();
             },
             toggleTeam(e) {
-                let { props, state } = this;
-                let { target } = e;
+                let {
+                    props,
+                    state
+                } = this;
+                let {
+                    target
+                } = e;
                 if (target.classList.contains('active')) return;
-                let teamid = target.attributes.teamid.value;
-                state.board.currentTeam.isActive = false;
+                let teamIndex = Number(target.dataset.idx);
+                let dayIndex = state.boards.indexOf(state.currentBoard);
 
-                state.board.currentTeam = state.board.teams.find(t => t.id == Number(teamid));
-                state.board.currentTeam.isActive = true;
+                state.currentBoard.currentTeam = state.currentBoard.teams[teamIndex];
+                location.hash = `#cup/${props.cupindex}/${dayIndex}/${teamIndex}`;
 
                 this.updateSearchQuery(this.searchText);
-                this.update();
+
+            },
+            toggleDay(e) {
+                let {
+                    props,
+                    state
+                } = this;
+                let {
+                    target
+                } = e;
+                if (target.classList.contains('active')) return;
+                let teamIndex = state.currentBoard.teams.indexOf(state.currentBoard.currentTeam);
+                let dayIndex = Number(target.dataset.idx);
+                state.currentBoard = state.boards[dayIndex];
+                state.currentBoard.currentTeam = state.currentBoard.teams[teamIndex];
+
+                location.hash = `#cup/${props.cupindex}/${dayIndex}/${teamIndex}`;
+                this.updateSearchQuery(this.searchText);
             },
             searchChange(e) {
                 let element = e.target;
                 let query = element.innerText;
-                
-                if(this.searchText === query) return ;
+
+                if (this.searchText === query) return;
                 this.updateSearchQuery(query);
                 this.update();
             },
-            updateSearchQuery(str = ''){
+            updateSearchQuery(str = '') {
                 this.searchText = str;
-                if(str === ''){
+                if (str === '') {
                     this.state.searchMode = false;
-                }else{
+                } else {
                     this.state.searchMode = true;
                 }
-                console.log(this)
-                this.state.board.currentTeam.ranks.forEach(t=>{
+                this.state.currentBoard.currentTeam.ranks.forEach(t => {
                     return t.isHidden = this.state.searchMode && !t.name.includes(str);
                 })
 

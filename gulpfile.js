@@ -5,25 +5,20 @@ const gulp = require('gulp'),
     babelify = require('babelify'),
     riotify = require('riotify');
 
-// gulp.task('riot', () => {
-//     gulp
-//         .src('src/tags/*.tag')
-//         .pipe(riot())
-//         .pipe(gulp.dest('./tags'));
-// });
-
 gulp.task('browserify', () => {
     return browserify('./src/main.js')
         .transform(babelify, {
-            presets: [['@babel/preset-env',{
-                targets:{
-                    node:'current'
-                }
-            }]]
+            presets: [
+                ['@babel/preset-env', {
+                    targets: {
+                        node: 'current'
+                    }
+                }]
+            ]
         })
         .transform(riotify)
         .bundle()
-        .on('error', function(err){
+        .on('error', function(err) {
             console.log(`Error : ${err}`);
             this.emit('end');
         })
@@ -31,8 +26,7 @@ gulp.task('browserify', () => {
         .pipe(gulp.dest('./'))
 })
 
-gulp.task('watch',gulp.series('browserify',()=>{
-    gulp.watch('./src/tags/*.riot', gulp.task('browserify'));
-    gulp.watch('./src/*.js', gulp.task('browserify'));
+gulp.task('watch', gulp.series('browserify', () => {
+    gulp.watch('./src/tags/**/*.riot', gulp.task('browserify'));
+    gulp.watch('./src/**/*.js', gulp.task('browserify'));
 }));
-

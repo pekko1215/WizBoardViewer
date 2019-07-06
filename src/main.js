@@ -4,7 +4,7 @@ import App from './tags/app.riot';
 
 
 (async() => {
-    let Cups = await WBWrapper.GetCups();
+    const Cups = await WBWrapper.GetCups();
     const FavoriteList = (() => {
         let f = localStorage.getItem('favorites');
         if (!f) return [];

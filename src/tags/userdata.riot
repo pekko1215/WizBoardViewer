@@ -1,0 +1,87 @@
+<userdata>
+    <loading class="{!state.timeDatas ? 'hidden' : ''} ">
+    </loading>
+    <div class="view" if={state.timeDatas}>
+        <div class="title-data">
+            <img class="icon" src="{`https://i-quiz-colopl-jp.akamaized.net/img/card/small/${state.img}.png`}" alt="">
+            <div class="name"> {state.name}</div>
+        </div>
+        <div class="right">{state.cup.title}</div>
+        <hr>
+        <usergraf data={state}></usergraf>
+    </div>
+    <style>
+        .title-data {
+            height: 100px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .title-data .icon {
+            height: 50px;
+            display: inline-block;
+            border: solid 2px #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        .title-data .name {
+            font-size: 43px;
+            display: inline-block;
+            margin-left: 9px;
+        }
+        
+        .right {
+            text-align: right;
+            margin-top: -31px;
+        }
+    </style>
+    <script>
+        import Usergraf from './viewer/usergraf.riot';
+
+        export default {
+            components: {
+                Usergraf
+            },
+            async onMounted(props, state) {
+                if (!state.timeDatas) {
+                    let {
+                        data
+                    } = await props.cup.getBoardInfomationUserHours(props.userid);
+                    let {
+                        cup
+                    } = props;
+                    let {
+                        teams
+                    } = data[0];
+                    let timeDatas = data.map(d => {
+                        let timeData = {
+                            date: d.date,
+                            ranks: d.ranks.map(arr => arr[0]),
+                        };
+                        return timeData;
+                    });
+                    let name = null;
+                    let img = null;
+                    timeDatas.forEach(d => {
+                        let t = d.ranks.find(d => d);
+                        if (!t) return;
+                        name = t.name;
+                        img = t.leaderCardImg;
+                    });
+
+                    this.state = {
+                        name,
+                        timeDatas,
+                        cup,
+                        teams,
+                        img
+                    }
+                    this.update();
+                } else {
+                    console.log(this);
+                }
+            }
+        }
+    </script>
+</userdata>

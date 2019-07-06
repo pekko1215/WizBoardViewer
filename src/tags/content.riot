@@ -17,10 +17,13 @@
         import * as riot from 'riot';
         import Rankers from './rankers.riot';
         import Mainpage from './mainpage.riot';
+        import Userdata from './userdata.riot';
+
         export default {
             components: {
                 Rankers,
-                Mainpage
+                Mainpage,
+                Userdata
             },
             async onMounted(props) {
                 const {
@@ -30,17 +33,29 @@
                     cups,
                     now_cup
                 } = Cups;
-                let redraw = () => {
+                let redraw = async() => {
                     let hashData = parseHash();
-                    console.log(hashData);
+                    let {
+                        state,
+                        props
+                    } = this;
                     switch (hashData.type) {
                         case 'cup':
-                            this.state.type = 'rankers';
-                            this.state.currentCup = cups.find(data => data.id == hashData.arg[0]);
+                            state.type = 'rankers';
+                            state.currentCup = cups.find(data => data.id == hashData.arg[0]);
+                            state.cupIndex = hashData.arg[0] || 0;
+                            state.dayIndex = hashData.arg[1] || 0;
+                            state.teamIndex = hashData.arg[2] || 0;
+                            this.update();
+                            break
+                        case 'user':
+                            state.type = 'user';
+                            state.currentCup = cups.find(data => data.id == hashData.arg[0]);
+                            state.userId = hashData.arg[1];
                             this.update();
                             break
                         default:
-                            this.state.type = 'home'
+                            state.type = 'home'
                             this.update();
                             break;
                     }
@@ -59,6 +74,7 @@
             return ret;
         }
     </script>
-    <mainpage if={state.type === 'home'}></mainpage>
-    <rankers if={state.type === 'rankers' } cup={state.currentCup} FavoriteList={props.FavoriteList}></rankers>
+    <mainpage if={state.type==='home' }></mainpage>
+    <rankers if={state.type==='rankers' } cup={state.currentCup} FavoriteList={props.FavoriteList} dayindex={state.dayIndex} teamindex={state.teamIndex} cupindex={state.cupIndex}></rankers>
+    <userdata if={state.type==='user' } cup={state.currentCup} userId={state.userId}></userdata>
 </content>

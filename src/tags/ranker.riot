@@ -3,9 +3,11 @@
         <img class="icon" src="{`https://i-quiz-colopl-jp.akamaized.net/img/card/small/${props.data.leaderCardImg}.png`}">
         <div class="favorite">★</div>
     </div>
-    <div class="rank">{props.data.rankOrder}</div>
-    <div class="name">{props.data.name}</div>
-    <div class="point">{props.data.pvnEventPoint}Pt</div>
+    <a class="hidden-anker" href="#user/{props.data.team.board.cup.id}/{props.data.userId}">
+        <div class="rank">{props.data.rankOrder}</div>
+        <div class="name">{props.data.name}</div>
+        <div class="point">{props.data.pvnEventPoint}Pt</div>
+    </a>
     <style scoped>
          :host {
             position: relative;
@@ -60,6 +62,10 @@
             font-family: 'Century Gothic';
             text-shadow: 1px 1px 3px #525252;
             text-align: center;
+        }
+        
+        .hidden-anker {
+            color: unset;
         }
         
         .name {
@@ -132,7 +138,7 @@
         }
         export default {
             onMounted(props, state) {
-
+                // console.log(props.data.team)
             },
             onBeforeUpdate: updateFavorite,
             onBeforeMount: updateFavorite,
