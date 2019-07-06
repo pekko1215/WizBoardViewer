@@ -11,10 +11,10 @@
     </div>
     <hr>
     <div if={state.boards} class="toggle-switch ">
-        <div onclick={toggleDay} each={(board,day) in state.boards} class="toggle-button {state.currentBoard===board ? 'active' : ''} " data-idx={day}>{day+1}日目</div>
+        <div onclick={toggleDay} each={(board,day) in state.boards} class="toggle-button {state.currentBoard===board ? 'active' : ''} {!board ? 'disabled' : ''}" data-idx={day}>{day+1}日目</div>
     </div>
     <div if={state.boards} class="toggle-switch ">
-        <div onclick={toggleTeam} class="toggle-button {state.currentBoard.currentTeam===team ? 'active' : ''} " each={(team,idx) in state.currentBoard.teams} data-idx="{idx} ">
+        <div onclick={toggleTeam} class="toggle-button {state.currentBoard.currentTeam===team ? 'active' : ''} {!team ? 'disabled' : ''}" each={(team,idx) in state.currentBoard.teams} data-idx="{idx} ">
             {team.name.replace(/チーム/,'')}
         </div>
     </div>
@@ -126,6 +126,12 @@
             text-align: center;
         }
         
+        .disabled {
+            background-color: #ccc !important;
+            color: #bbb !important;
+            cursor: default;
+        }
+        
         @media screen and (min-width:1024px) and (max-width:1300px) {
             /*　画面サイズが1024pxからはここを読み込む　*/
             .board-datas {
@@ -174,9 +180,10 @@
                     this.update();
                 }
                 let dayIndex = props.dayindex;
-                if (!state.boards[dayIndex]) dayIndex = 0;
+                if (!state.boards[dayIndex]) dayIndex = state.boards.length - 1;
                 state.currentBoard = state.boards[dayIndex];
                 state.boards.forEach(board => {
+                    if (!board) return
                     board.currentTeam = board.teams[0];
                 })
 
@@ -202,6 +209,7 @@
                 if (target.classList.contains('active')) return;
                 let teamIndex = Number(target.dataset.idx);
                 let dayIndex = state.boards.indexOf(state.currentBoard);
+                if (!state.currentBoard) return;
 
                 state.currentBoard.currentTeam = state.currentBoard.teams[teamIndex];
                 location.hash = `#cup/${props.cupindex}/${dayIndex}/${teamIndex}`;
@@ -218,8 +226,11 @@
                     target
                 } = e;
                 if (target.classList.contains('active')) return;
+                if (!state.currentBoard) return;
+
                 let teamIndex = state.currentBoard.teams.indexOf(state.currentBoard.currentTeam);
                 let dayIndex = Number(target.dataset.idx);
+                if (!state.boards[dayIndex]) return;
                 state.currentBoard = state.boards[dayIndex];
                 state.currentBoard.currentTeam = state.currentBoard.teams[teamIndex];
 

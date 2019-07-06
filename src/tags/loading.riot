@@ -1,13 +1,15 @@
 <loading>
-    <div class="line-spin-fade-loader">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+    <div>
+        <div class="line-spin-fade-loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
     <style>
          :host {
@@ -20,12 +22,41 @@
             opacity: 1;
             transition: opacity 0s;
             pointer-events: auto;
+            z-index: 10;
+            display: inline;
         }
         
          :host.hidden {
             opacity: 0;
             transition: opacity 0.3s;
             pointer-events: none;
+        }
+        
+         :host>div {
+            flex: 0 1 auto;
+            flex-direction: column;
+            flex-grow: 1;
+            flex-shrink: 0;
+            flex-basis: 25%;
+            max-width: 25%;
+            height: 200px;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto auto;
+            display: flex;
+        }
+        
+        .line-spin-fade-loader {
+            transform: scale(1.5);
+        }
+        
+        .line-spin-fade-loader>div {
+            background-color: gray;
         }
     </style>
 </loading>

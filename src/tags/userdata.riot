@@ -1,5 +1,5 @@
 <userdata>
-    <loading class="{!state.timeDatas ? 'hidden' : ''} ">
+    <loading class="{state.timeDatas ? 'hidden' : ''} ">
     </loading>
     <div class="view" if={state.timeDatas}>
         <div class="title-data">
@@ -38,10 +38,12 @@
     </style>
     <script>
         import Usergraf from './viewer/usergraf.riot';
+        import Loading from './loading.riot';
 
         export default {
             components: {
-                Usergraf
+                Usergraf,
+                Loading
             },
             async onMounted(props, state) {
                 if (!state.timeDatas) {
@@ -54,11 +56,42 @@
                     let {
                         teams
                     } = data[0];
-                    let timeDatas = data.map(d => {
+                    let prevSumPoint = 0;
+                    let prevDailyPoint = 0;
+                    let sumPoint = 0;
+                    let blankCount = 0;
+                    let timeDatas = data.map((d, i) => {
                         let timeData = {
                             date: d.date,
-                            ranks: d.ranks.map(arr => arr[0]),
+                            ranks: d.ranks.map(arr => arr[0])
                         };
+                        timeData.daily = timeData.ranks.find((r, i) => i !== 0 && r);
+                        let pt = null;
+                        let speed = 0;
+                        blankCount++;
+                        if ([8, 32, 56].includes(i)) prevDailyPoint = 0;
+
+                        if (timeData.ranks[0]) {
+                            speed = timeData.ranks[0].pvnEventPoint - prevSumPoint;
+                            if (timeData.daily) {
+                                prevDailyPoint = timeData.daily.pvnEventPoint;
+                            }
+                        } else {
+                            if (timeData.daily) {
+                                speed = timeData.daily.pvnEventPoint - prevDailyPoint;
+                                prevDailyPoint = timeData.daily.pvnEventPoint;
+                            } else {
+                                timeData.pt = null;
+                                timeData.speed = null;
+                                return timeData
+                            }
+                        }
+                        sumPoint += speed;
+                        prevSumPoint = sumPoint;
+
+                        timeData.pt = sumPoint;
+                        timeData.speed = speed / blankCount;
+                        blankCount = 0;
                         return timeData;
                     });
                     let name = null;

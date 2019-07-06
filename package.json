@@ -24,5 +24,8 @@
     "riot": "^4.3.1",
     "riotify": "^4.0.0",
     "vinyl-source-stream": "^2.0.0"
+  },
+  "dependencies": {
+    "c3": "^0.7.2"
   }
 }

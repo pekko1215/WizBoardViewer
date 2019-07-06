@@ -1,3 +1,72 @@
 <usergraf>
-
+    <div id="chart"></div>
+    <script>
+        import {
+            generate
+        } from 'c3';
+        export default {
+            onUpdated(props, state) {
+                // コンポーネントのマウント前
+                let {
+                    cup,
+                    img,
+                    name,
+                    teams,
+                    timeDatas
+                } = props.data;
+                let chart = generate({
+                    bindto: '#chart',
+                    data: {
+                        x: 'x',
+                        columns: [
+                            ['x', ...timeDatas.map(d => d.date)],
+                            ['Pt', ...timeDatas.map((data, i) => {
+                                return data.pt;
+                            })],
+                            ['Pt/hours', ...timeDatas.map(data => data.speed)]
+                        ],
+                        axes: {
+                            'Pt/hours': 'y2'
+                        },
+                        types: {
+                            'Pt/hours': 'area'
+                        }
+                    },
+                    axis: {
+                        y: {
+                            label: {
+                                text: 'Pt',
+                                position: 'outer-middle'
+                            }
+                        },
+                        y2: {
+                            show: true,
+                            label: {
+                                text: 'Pt/hours',
+                                position: 'outer-middle'
+                            }
+                        },
+                        x: {
+                            type: 'timeseries',
+                            tick: {
+                                format: '%H:%M'
+                            }
+                        }
+                    },
+                    line: {
+                        connectNull: true
+                    }
+                });
+                window.chart = chart;
+            },
+            onMounted() {
+                this.update();
+            }
+        }
+    </script>
+    <style>
+        svg {
+            stroke-width: 1px;
+        }
+    </style>
 </usergraf>
