@@ -32407,7 +32407,7 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<sidemenu expr13625></sidemenu><content expr13626></content>', [{
+    return template('<sidemenu expr13730></sidemenu><content expr13731></content>', [{
       'type': bindingTypes.TAG,
       'getComponent': getComponent,
       'evaluate': function (scope) {
@@ -32433,8 +32433,8 @@ var _default = {
           return scope.toggleSidemenu;
         }
       }],
-      'redundantAttribute': 'expr13625',
-      'selector': '[expr13625]'
+      'redundantAttribute': 'expr13730',
+      'selector': '[expr13730]'
     }, {
       'type': bindingTypes.TAG,
       'getComponent': getComponent,
@@ -32455,8 +32455,8 @@ var _default = {
           return scope.props.FavoriteList;
         }
       }],
-      'redundantAttribute': 'expr13626',
-      'selector': '[expr13626]'
+      'redundantAttribute': 'expr13731',
+      'selector': '[expr13731]'
     }]);
   },
   'name': 'app'
@@ -32546,13 +32546,13 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<mainpage expr13631></mainpage><rankers expr13632></rankers><userdata expr13633></userdata>', [{
+    return template('<mainpage expr13732></mainpage><rankers expr13733></rankers><userdata expr13734></userdata>', [{
       'type': bindingTypes.IF,
       'evaluate': function (scope) {
         return scope.state.type === 'home';
       },
-      'redundantAttribute': 'expr13631',
-      'selector': '[expr13631]',
+      'redundantAttribute': 'expr13732',
+      'selector': '[expr13732]',
       'template': template(null, [{
         'type': bindingTypes.TAG,
         'getComponent': getComponent,
@@ -32567,8 +32567,8 @@ var _default = {
       'evaluate': function (scope) {
         return scope.state.type === 'rankers';
       },
-      'redundantAttribute': 'expr13632',
-      'selector': '[expr13632]',
+      'redundantAttribute': 'expr13733',
+      'selector': '[expr13733]',
       'template': template(null, [{
         'type': bindingTypes.TAG,
         'getComponent': getComponent,
@@ -32613,8 +32613,8 @@ var _default = {
       'evaluate': function (scope) {
         return scope.state.type === 'user';
       },
-      'redundantAttribute': 'expr13633',
-      'selector': '[expr13633]',
+      'redundantAttribute': 'expr13734',
+      'selector': '[expr13734]',
       'template': template(null, [{
         'type': bindingTypes.TAG,
         'getComponent': getComponent,
@@ -32720,7 +32720,7 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<div expr13653><img expr13654 class="icon"/><div class="favorite">★</div></div><a expr13655 class="hidden-anker"><div expr13656 class="rank"><!----></div><div expr13657 class="name"><!----></div><div expr13658 class="point"><!----></div></a>', [{
+    return template('<div expr13759><img expr13760 class="icon"/><div class="favorite">★</div></div><a expr13761 class="hidden-anker"><div expr13762 class="rank"><!----></div><div expr13763 class="name"><!----></div><div expr13764 class="point"><!----></div></a>', [{
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'class',
@@ -32729,8 +32729,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr13653',
-      'selector': '[expr13653]',
+      'redundantAttribute': 'expr13759',
+      'selector': '[expr13759]',
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'class',
@@ -32745,8 +32745,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr13654',
-      'selector': '[expr13654]',
+      'redundantAttribute': 'expr13760',
+      'selector': '[expr13760]',
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'src',
@@ -32755,8 +32755,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr13655',
-      'selector': '[expr13655]',
+      'redundantAttribute': 'expr13761',
+      'selector': '[expr13761]',
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'href',
@@ -32765,8 +32765,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr13656',
-      'selector': '[expr13656]',
+      'redundantAttribute': 'expr13762',
+      'selector': '[expr13762]',
       'expressions': [{
         'type': expressionTypes.TEXT,
         'childNodeIndex': 0,
@@ -32775,8 +32775,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr13657',
-      'selector': '[expr13657]',
+      'redundantAttribute': 'expr13763',
+      'selector': '[expr13763]',
       'expressions': [{
         'type': expressionTypes.TEXT,
         'childNodeIndex': 0,
@@ -32785,8 +32785,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr13658',
-      'selector': '[expr13658]',
+      'redundantAttribute': 'expr13764',
+      'selector': '[expr13764]',
       'expressions': [{
         'type': expressionTypes.TEXT,
         'childNodeIndex': 0,
@@ -32830,6 +32830,7 @@ var _default = {
         state.cup = cup;
         state.boards = null;
         state.boards = (await cup.getBoardInfomationAllDaylast()).data;
+        console.log(state);
         this.update();
       }
 
@@ -32911,7 +32912,7 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<loading expr13634></loading><div expr13635 class="cup-title "><!----></div><hr/><div class="search-box "><div class="inline-input "><i class="fas fa-search "></i><div expr13636 class="input " contenteditable></div></div></div><hr/><div expr13637 class="toggle-switch "></div><div expr13639 class="toggle-switch "></div><br/><div expr13641 class="board-datas "></div>', [{
+    return template('<loading expr13749></loading><div expr13750 class="cup-title "><!----></div><hr/><div class="search-box "><div class="inline-input "><i class="fas fa-search "></i><div expr13751 class="input " contenteditable></div></div></div><hr/><div expr13752 class="toggle-switch "></div><div expr13754 class="toggle-switch "></div><br/><div expr13756 class="board-datas "></div>', [{
       'type': bindingTypes.TAG,
       'getComponent': getComponent,
       'evaluate': function (scope) {
@@ -32925,11 +32926,11 @@ var _default = {
           return [scope.state.boards ? 'hidden' : '', ' '].join('');
         }
       }],
-      'redundantAttribute': 'expr13634',
-      'selector': '[expr13634]'
+      'redundantAttribute': 'expr13749',
+      'selector': '[expr13749]'
     }, {
-      'redundantAttribute': 'expr13635',
-      'selector': '[expr13635]',
+      'redundantAttribute': 'expr13750',
+      'selector': '[expr13750]',
       'expressions': [{
         'type': expressionTypes.TEXT,
         'childNodeIndex': 0,
@@ -32938,8 +32939,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr13636',
-      'selector': '[expr13636]',
+      'redundantAttribute': 'expr13751',
+      'selector': '[expr13751]',
       'expressions': [{
         'type': expressionTypes.EVENT,
         'name': 'onkeyup',
@@ -32952,9 +32953,9 @@ var _default = {
       'evaluate': function (scope) {
         return scope.state.boards;
       },
-      'redundantAttribute': 'expr13637',
-      'selector': '[expr13637]',
-      'template': template('<div expr13638></div>', [{
+      'redundantAttribute': 'expr13752',
+      'selector': '[expr13752]',
+      'template': template('<div expr13753></div>', [{
         'type': bindingTypes.EACH,
         'getKey': null,
         'condition': null,
@@ -32963,7 +32964,7 @@ var _default = {
             'type': expressionTypes.TEXT,
             'childNodeIndex': 0,
             'evaluate': function (scope) {
-              return [scope.day + 1, '日目'].join('');
+              return [scope.day, '日目'].join('');
             }
           }, {
             'type': expressionTypes.EVENT,
@@ -32975,22 +32976,22 @@ var _default = {
             'type': expressionTypes.ATTRIBUTE,
             'name': 'class',
             'evaluate': function (scope) {
-              return ['toggle-button ', scope.state.currentBoard === scope.board ? 'active' : '', ' ', !scope.board ? 'disabled' : ''].join('');
+              return ['toggle-button ', scope.state.currentBoard === scope.state.boards[scope.i] ? 'active' : '', ' ', !scope.state.boards[scope.i] ? 'disabled' : ''].join('');
             }
           }, {
             'type': expressionTypes.ATTRIBUTE,
             'name': 'data-idx',
             'evaluate': function (scope) {
-              return scope.day;
+              return scope.i;
             }
           }]
         }]),
-        'redundantAttribute': 'expr13638',
-        'selector': '[expr13638]',
-        'itemName': 'board',
-        'indexName': 'day',
+        'redundantAttribute': 'expr13753',
+        'selector': '[expr13753]',
+        'itemName': 'day',
+        'indexName': 'i',
         'evaluate': function (scope) {
-          return scope.state.boards;
+          return [1, 2, 3, 4];
         }
       }])
     }, {
@@ -32998,9 +32999,9 @@ var _default = {
       'evaluate': function (scope) {
         return scope.state.boards;
       },
-      'redundantAttribute': 'expr13639',
-      'selector': '[expr13639]',
-      'template': template('<div expr13640></div>', [{
+      'redundantAttribute': 'expr13754',
+      'selector': '[expr13754]',
+      'template': template('<div expr13755></div>', [{
         'type': bindingTypes.EACH,
         'getKey': null,
         'condition': null,
@@ -33031,8 +33032,8 @@ var _default = {
             }
           }]
         }]),
-        'redundantAttribute': 'expr13640',
-        'selector': '[expr13640]',
+        'redundantAttribute': 'expr13755',
+        'selector': '[expr13755]',
         'itemName': 'team',
         'indexName': 'idx',
         'evaluate': function (scope) {
@@ -33044,9 +33045,9 @@ var _default = {
       'evaluate': function (scope) {
         return scope.state.boards;
       },
-      'redundantAttribute': 'expr13641',
-      'selector': '[expr13641]',
-      'template': template('<ranker expr13642></ranker>', [{
+      'redundantAttribute': 'expr13756',
+      'selector': '[expr13756]',
+      'template': template('<ranker expr13757></ranker>', [{
         'type': bindingTypes.EACH,
         'getKey': null,
         'condition': null,
@@ -33071,8 +33072,8 @@ var _default = {
             }
           }]
         }]),
-        'redundantAttribute': 'expr13642',
-        'selector': '[expr13642]',
+        'redundantAttribute': 'expr13757',
+        'selector': '[expr13757]',
         'itemName': 'ranker',
         'indexName': null,
         'evaluate': function (scope) {
@@ -33106,9 +33107,9 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<div class="box gray"><a href="#"><img src="img/logo.png" class="logo"/></a></div><div class="box"><br/><a expr13627><button expr13628 id="nowCupButton" class="button"><i class="fas fa-running"></i>\r\n            現在開催中の魔導杯へ</button><br/></a><br/></div><div class="box gray"><h3><i class="fas fa-trophy"></i> 魔導杯一覧</h3><div id="cupList"><a expr13629 class="cup"></a></div><br/></div>', [{
-      'redundantAttribute': 'expr13627',
-      'selector': '[expr13627]',
+    return template('<div class="box gray"><a href="#"><img src="img/logo.png" class="logo"/></a></div><div class="box"><br/><a expr13735><button expr13736 id="nowCupButton" class="button"><i class="fas fa-running"></i>\r\n            現在開催中の魔導杯へ</button><br/></a><br/></div><div class="box gray"><h3><i class="fas fa-trophy"></i> 魔導杯一覧</h3><div id="cupList"><a expr13737 class="cup"></a></div><br/></div>', [{
+      'redundantAttribute': 'expr13735',
+      'selector': '[expr13735]',
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'href',
@@ -33117,8 +33118,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr13628',
-      'selector': '[expr13628]',
+      'redundantAttribute': 'expr13736',
+      'selector': '[expr13736]',
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'disabled',
@@ -33130,7 +33131,7 @@ var _default = {
       'type': bindingTypes.EACH,
       'getKey': null,
       'condition': null,
-      'template': template('<div expr13630><!----></div>', [{
+      'template': template('<div expr13738><!----></div>', [{
         'expressions': [{
           'type': expressionTypes.ATTRIBUTE,
           'name': 'href',
@@ -33139,8 +33140,8 @@ var _default = {
           }
         }]
       }, {
-        'redundantAttribute': 'expr13630',
-        'selector': '[expr13630]',
+        'redundantAttribute': 'expr13738',
+        'selector': '[expr13738]',
         'expressions': [{
           'type': expressionTypes.TEXT,
           'childNodeIndex': 0,
@@ -33149,8 +33150,8 @@ var _default = {
           }
         }]
       }]),
-      'redundantAttribute': 'expr13629',
-      'selector': '[expr13629]',
+      'redundantAttribute': 'expr13737',
+      'selector': '[expr13737]',
       'itemName': 'cup',
       'indexName': null,
       'evaluate': function (scope) {
@@ -33318,7 +33319,7 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<loading expr13643></loading><div expr13644 class="view"></div>', [{
+    return template('<loading expr13739></loading><div expr13740 class="view"></div>', [{
       'type': bindingTypes.TAG,
       'getComponent': getComponent,
       'evaluate': function (scope) {
@@ -33332,18 +33333,18 @@ var _default = {
           return [scope.state.timeDatas ? 'hidden' : '', ' '].join('');
         }
       }],
-      'redundantAttribute': 'expr13643',
-      'selector': '[expr13643]'
+      'redundantAttribute': 'expr13739',
+      'selector': '[expr13739]'
     }, {
       'type': bindingTypes.IF,
       'evaluate': function (scope) {
         return scope.state.timeDatas;
       },
-      'redundantAttribute': 'expr13644',
-      'selector': '[expr13644]',
-      'template': template('<div class="title-data"><img expr13645 class="icon" alt/><div expr13646 class="name"><!----></div></div><div expr13647 class="right"><!----></div><hr/><div class="toggle-switch "><div expr13648></div></div><br/><usergraf expr13649 class="width-full"></usergraf><div class="width-full" style="text-align: center"><h4 expr13650><!----></h4><h4 expr13651><!----></h4></div><speedmeter expr13652></speedmeter>', [{
-        'redundantAttribute': 'expr13645',
-        'selector': '[expr13645]',
+      'redundantAttribute': 'expr13740',
+      'selector': '[expr13740]',
+      'template': template('<div class="title-data"><img expr13741 class="icon" alt/><div expr13742 class="name"><!----></div></div><div expr13743 class="right"><!----></div><hr/><div class="toggle-switch "><div expr13744></div></div><br/><usergraf expr13745 class="width-full"></usergraf><div class="width-full" style="text-align: center"><h4 expr13746><!----></h4><h4 expr13747><!----></h4></div><speedmeter expr13748></speedmeter>', [{
+        'redundantAttribute': 'expr13741',
+        'selector': '[expr13741]',
         'expressions': [{
           'type': expressionTypes.ATTRIBUTE,
           'name': 'src',
@@ -33352,8 +33353,8 @@ var _default = {
           }
         }]
       }, {
-        'redundantAttribute': 'expr13646',
-        'selector': '[expr13646]',
+        'redundantAttribute': 'expr13742',
+        'selector': '[expr13742]',
         'expressions': [{
           'type': expressionTypes.TEXT,
           'childNodeIndex': 0,
@@ -33362,8 +33363,8 @@ var _default = {
           }
         }]
       }, {
-        'redundantAttribute': 'expr13647',
-        'selector': '[expr13647]',
+        'redundantAttribute': 'expr13743',
+        'selector': '[expr13743]',
         'expressions': [{
           'type': expressionTypes.TEXT,
           'childNodeIndex': 0,
@@ -33402,8 +33403,8 @@ var _default = {
             }
           }]
         }]),
-        'redundantAttribute': 'expr13648',
-        'selector': '[expr13648]',
+        'redundantAttribute': 'expr13744',
+        'selector': '[expr13744]',
         'itemName': 'data',
         'indexName': 'day',
         'evaluate': function (scope) {
@@ -33435,11 +33436,11 @@ var _default = {
             return 'width-full';
           }
         }],
-        'redundantAttribute': 'expr13649',
-        'selector': '[expr13649]'
+        'redundantAttribute': 'expr13745',
+        'selector': '[expr13745]'
       }, {
-        'redundantAttribute': 'expr13650',
-        'selector': '[expr13650]',
+        'redundantAttribute': 'expr13746',
+        'selector': '[expr13746]',
         'expressions': [{
           'type': expressionTypes.TEXT,
           'childNodeIndex': 0,
@@ -33448,8 +33449,8 @@ var _default = {
           }
         }]
       }, {
-        'redundantAttribute': 'expr13651',
-        'selector': '[expr13651]',
+        'redundantAttribute': 'expr13747',
+        'selector': '[expr13747]',
         'expressions': [{
           'type': expressionTypes.TEXT,
           'childNodeIndex': 0,
@@ -33494,8 +33495,8 @@ var _default = {
             }
           }]
         }]),
-        'redundantAttribute': 'expr13652',
-        'selector': '[expr13652]',
+        'redundantAttribute': 'expr13748',
+        'selector': '[expr13748]',
         'itemName': 'data',
         'indexName': 'day',
         'evaluate': function (scope) {
@@ -33550,9 +33551,9 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<div expr13659 class="title"><!----></div><div id="meter"></div>', [{
-      'redundantAttribute': 'expr13659',
-      'selector': '[expr13659]',
+    return template('<div expr13758 class="title"><!----></div><div id="meter"></div>', [{
+      'redundantAttribute': 'expr13758',
+      'selector': '[expr13758]',
       'expressions': [{
         'type': expressionTypes.TEXT,
         'childNodeIndex': 0,

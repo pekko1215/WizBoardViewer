@@ -11,7 +11,7 @@
     </div>
     <hr>
     <div if={state.boards} class="toggle-switch ">
-        <div onclick={toggleDay} each={(board,day) in state.boards} class="toggle-button {state.currentBoard===board ? 'active' : ''} {!board ? 'disabled' : ''}" data-idx={day}>{day+1}日目</div>
+        <div onclick={toggleDay} each={(day,i) in [1,2,3,4]} class="toggle-button {state.currentBoard===state.boards[i] ? 'active' : ''} {!state.boards[i] ? 'disabled' : ''}" data-idx={i}>{day}日目</div>
     </div>
     <div if={state.boards} class="toggle-switch ">
         <div onclick={toggleTeam} class="toggle-button {state.currentBoard.currentTeam===team ? 'active' : ''} {!team ? 'disabled' : ''}" each={(team,idx) in state.currentBoard.teams} data-idx="{idx} ">
@@ -179,6 +179,7 @@
                     state.cup = cup;
                     state.boards = null;
                     state.boards = (await cup.getBoardInfomationAllDaylast()).data;
+                    console.log(state)
                     this.update();
                 }
                 let dayIndex = props.dayindex;
