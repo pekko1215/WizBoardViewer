@@ -1,5 +1,5 @@
 <app>
-    <sidemenu Cups={ props.Cups } FavoriteList={props.FavoriteList}></sidemenu>
+    <sidemenu Cups={ props.Cups } FavoriteList={props.FavoriteList} onclick={toggleSidemenu}></sidemenu>
     <content Cups={ props.Cups } FavoriteList={props.FavoriteList}></content>
     <script>
         import Content from './content.riot';
@@ -20,6 +20,15 @@
                     now_cup
                 } = Cups;
 
+            },
+            toggleSidemenu(e) {
+                const element = this.$('sidemenu');
+                if (element.classList.contains('hidden')) {
+                    element.classList.remove('hidden');
+                } else {
+                    element.classList.add('hidden');
+
+                }
             }
         }
     </script>
@@ -27,6 +36,18 @@
          :host {
             display: block;
             position: relative;
+        }
+        
+        @media screen and (max-width:764px) {
+            sidemenu.hidden {
+                width: 10px;
+            }
+            sidemenu.hidden+content {
+                margin-left: 10px;
+            }
+            sidemenu.hidden>* {
+                display: none;
+            }
         }
     </style>
 </app>
