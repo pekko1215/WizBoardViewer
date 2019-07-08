@@ -134,11 +134,29 @@
                     let prevDailyPoint = 0;
                     let sumPoint = 0;
                     let blankCount = 0;
-                    let timeDatas = data.map((d, i) => {
+
+                    let time = new Date(cup.first);
+
+                    time.setMinutes(55);
+                    let arr = [];
+                    for (let i = 0; i < 72; i++) {
+                        if (data.length == 0 || data[0].date.getTime() != time.getTime()) {
+                            arr.push({
+                                date: new Date(time.getTime()),
+                                ranks: [null, null, null, null, null]
+                            })
+                        } else {
+                            arr.push(data.shift())
+                        }
+                        time.setHours(time.getHours() + 1);
+                    }
+
+                    let timeDatas = arr.map((d, i) => {
                         let timeData = {
                             date: d.date,
-                            ranks: d.ranks.map(arr => arr[0])
+                            ranks: d.ranks.map(arr => arr && arr[0])
                         };
+                        time.setHours(time.getHours() + 1);
                         timeData.daily = timeData.ranks.find((r, i) => i !== 0 && r);
                         let pt = null;
                         let speed = 0;
@@ -171,6 +189,7 @@
                     let name = null;
                     let img = null;
                     timeDatas.forEach(d => {
+                        if (!d) return
                         let t = d.ranks.find(d => d);
                         if (!t) return;
                         name = t.name;
