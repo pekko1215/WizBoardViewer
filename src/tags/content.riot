@@ -29,6 +29,10 @@
                 Mainpage,
                 Userdata
             },
+            prevHash: {
+                type: null,
+                arg: []
+            },
             async onMounted(props) {
                 const {
                     Cups
@@ -43,6 +47,7 @@
                         state,
                         props
                     } = this;
+                    if (hashData.type === this.prevHash.type) return;
                     switch (hashData.type) {
                         case 'cup':
                             state.type = 'rankers';
@@ -63,6 +68,7 @@
                             this.update();
                             break;
                     }
+                    this.prevHash = hashData
                 }
                 window.addEventListener('hashchange', redraw, false)
                 redraw();

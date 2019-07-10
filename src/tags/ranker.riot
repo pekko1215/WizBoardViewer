@@ -1,12 +1,13 @@
 <ranker class={props.data.isHidden ? 'hidden' : ''}>
-    <div class="icon-wrapper {props.data.isFavorited ? 'favorited' : ''}" onclick={clickFavorite}>
+    <div if={!props.data.isHidden} class="icon-wrapper {props.data.isFavorited ? 'favorited' : ''}" onclick={clickFavorite}>
         <img class="icon" src="{`https://i-quiz-colopl-jp.akamaized.net/img/card/small/${props.data.leaderCardImg}.png`}">
         <div class="favorite">★</div>
     </div>
-    <a class="hidden-anker" href="#user/{props.data.team.board.cup.id}/{props.data.userId}">
-        <div class="rank">{props.data.rankOrder}</div>
+    <a if={!props.data.isHidden} class="hidden-anker" href="#user/{props.data.team.board.cup.id}/{props.data.userId}">
+        <div class="rank">{props.order+1}</div>
         <div class="name">{props.data.name}</div>
         <div class="point">{props.data.pvnEventPoint}Pt</div>
+        <div if={props.data.team.id==- 2} class="team-rank">{props.data.defaultTeam.name.replace(/チーム/,'')} {props.data.rankOrder}位</div>
     </a>
     <style scoped>
          :host {
@@ -123,6 +124,15 @@
                 font-size: 18px;
             }
         }
+        
+        .team-rank {
+            display: block;
+            position: absolute;
+            left: 34px;
+            bottom: -3px;
+            box-sizing: border-box;
+            font-size: 9pt;
+        }
     </style>
     <script>
         function updateFavorite(props, state) {
@@ -137,9 +147,7 @@
             }
         }
         export default {
-            onMounted(props, state) {
-                // console.log(props.data.team)
-            },
+            onMounted(props, state) {},
             onBeforeUpdate: updateFavorite,
             onBeforeMount: updateFavorite,
             clickFavorite() {

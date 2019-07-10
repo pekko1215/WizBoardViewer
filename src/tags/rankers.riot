@@ -19,9 +19,8 @@
         </div>
     </div>
     <br>
-    <div if={state.boards} class="board-datas ">
-        <ranker data={ranker} each={ranker in state.currentBoard.currentTeam.ranks.slice(0,50)} FavoriteList={props.FavoriteList}>
-
+    <div if={state.boards} class="board-datas">
+        <ranker each={i in [...Array(150).keys()]} data={state.currentBoard.currentTeam.ranks[i] || {isHidden:true}} FavoriteList={props.FavoriteList} order={i}>
         </ranker>
     </div>
     <style scoped>
@@ -171,17 +170,14 @@
                 Loading,
                 Ranker
             },
-            async onBeforeUpdate(props, state) {
+            Array,
+            async onBeforeMount(props, state) {
                 let {
                     cup
                 } = props;
-                if (state.cup !== cup) {
-                    state.cup = cup;
-                    state.boards = null;
-                    state.boards = (await cup.getBoardInfomationAllDaylast()).data;
-                    console.log(state)
-                    this.update();
-                }
+                state.cup = cup;
+                state.boards = null;
+                state.boards = (await cup.getBoardInfomationAllDaylast()).data;
                 let dayIndex = props.dayindex;
                 if (!state.boards[dayIndex]) dayIndex = state.boards.length - 1;
                 state.currentBoard = state.boards[dayIndex];
@@ -195,11 +191,14 @@
                 state.currentBoard.currentTeam = state.currentBoard.teams[teamIndex];
 
                 location.hash = `#cup/${props.cupindex}/${dayIndex}/${teamIndex}`;
-                this.updateSearchQuery(this.searchText);
                 // update が呼び出され、コンポーネントのテンプレートが更新された直後
+                this.update();
+            },
+            async onBeforeUpdate() {
+                if (this.boards) this.updateSearchQuery(this.searchText);
             },
             async onMounted(props, state) {
-                this.update();
+                // this.update();
             },
             toggleTeam(e) {
                 let {
@@ -218,7 +217,7 @@
                 location.hash = `#cup/${props.cupindex}/${dayIndex}/${teamIndex}`;
 
                 this.updateSearchQuery(this.searchText);
-
+                this.update();
             },
             toggleDay(e) {
                 let {
@@ -239,6 +238,7 @@
 
                 location.hash = `#cup/${props.cupindex}/${dayIndex}/${teamIndex}`;
                 this.updateSearchQuery(this.searchText);
+                this.update();
             },
             searchChange(e) {
                 let element = e.target;
