@@ -171,13 +171,17 @@
                 Ranker
             },
             Array,
-            async onBeforeMount(props, state) {
+            async onBeforeUpdate(props, state) {
                 let {
                     cup
                 } = props;
-                state.cup = cup;
-                state.boards = null;
-                state.boards = (await cup.getBoardInfomationAllDaylast()).data;
+                if (state.cup !== cup) {
+                    state.cup = cup;
+                    state.boards = null;
+                    state.boards = (await cup.getBoardInfomationAllDaylast()).data;
+                    console.log(state)
+                    this.update();
+                }
                 let dayIndex = props.dayindex;
                 if (!state.boards[dayIndex]) dayIndex = state.boards.length - 1;
                 state.currentBoard = state.boards[dayIndex];
@@ -185,20 +189,19 @@
                     if (!board) return
                     board.currentTeam = board.teams[0];
                 })
-
                 let teamIndex = props.teamindex
                 if (!state.currentBoard.teams[teamIndex]) teamIndex = 0;
                 state.currentBoard.currentTeam = state.currentBoard.teams[teamIndex];
-
                 location.hash = `#cup/${props.cupindex}/${dayIndex}/${teamIndex}`;
+                this.updateSearchQuery(this.searchText);
                 // update が呼び出され、コンポーネントのテンプレートが更新された直後
-                this.update();
             },
-            async onBeforeUpdate() {
-                if (this.boards) this.updateSearchQuery(this.searchText);
-            },
+            // async onBeforeUpdate() {
+            //     if (this.boards) this.updateSearchQuery(this.searchText);
+            //     this.onBeforeMount();
+            // },
             async onMounted(props, state) {
-                // this.update();
+                this.update();
             },
             toggleTeam(e) {
                 let {
@@ -217,7 +220,6 @@
                 location.hash = `#cup/${props.cupindex}/${dayIndex}/${teamIndex}`;
 
                 this.updateSearchQuery(this.searchText);
-                this.update();
             },
             toggleDay(e) {
                 let {
@@ -238,7 +240,6 @@
 
                 location.hash = `#cup/${props.cupindex}/${dayIndex}/${teamIndex}`;
                 this.updateSearchQuery(this.searchText);
-                this.update();
             },
             searchChange(e) {
                 let element = e.target;
