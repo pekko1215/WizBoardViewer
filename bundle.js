@@ -32408,7 +32408,7 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<sidemenu expr2395></sidemenu><content expr2396></content>', [{
+    return template('<sidemenu expr0></sidemenu><content expr1></content>', [{
       'type': bindingTypes.TAG,
       'getComponent': getComponent,
       'evaluate': function (scope) {
@@ -32434,8 +32434,8 @@ var _default = {
           return scope.toggleSidemenu;
         }
       }],
-      'redundantAttribute': 'expr2395',
-      'selector': '[expr2395]'
+      'redundantAttribute': 'expr0',
+      'selector': '[expr0]'
     }, {
       'type': bindingTypes.TAG,
       'getComponent': getComponent,
@@ -32456,8 +32456,8 @@ var _default = {
           return scope.props.FavoriteList;
         }
       }],
-      'redundantAttribute': 'expr2396',
-      'selector': '[expr2396]'
+      'redundantAttribute': 'expr1',
+      'selector': '[expr1]'
     }]);
   },
   'name': 'app'
@@ -32553,13 +32553,13 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<mainpage expr2401></mainpage><rankers expr2402></rankers><userdata expr2403></userdata>', [{
+    return template('<mainpage expr2></mainpage><rankers expr3></rankers><userdata expr4></userdata>', [{
       'type': bindingTypes.IF,
       'evaluate': function (scope) {
         return scope.state.type === 'home';
       },
-      'redundantAttribute': 'expr2401',
-      'selector': '[expr2401]',
+      'redundantAttribute': 'expr2',
+      'selector': '[expr2]',
       'template': template(null, [{
         'type': bindingTypes.TAG,
         'getComponent': getComponent,
@@ -32574,8 +32574,8 @@ var _default = {
       'evaluate': function (scope) {
         return scope.state.type === 'rankers';
       },
-      'redundantAttribute': 'expr2402',
-      'selector': '[expr2402]',
+      'redundantAttribute': 'expr3',
+      'selector': '[expr3]',
       'template': template(null, [{
         'type': bindingTypes.TAG,
         'getComponent': getComponent,
@@ -32620,8 +32620,8 @@ var _default = {
       'evaluate': function (scope) {
         return scope.state.type === 'user';
       },
-      'redundantAttribute': 'expr2403',
-      'selector': '[expr2403]',
+      'redundantAttribute': 'expr4',
+      'selector': '[expr4]',
       'template': template(null, [{
         'type': bindingTypes.TAG,
         'getComponent': getComponent,
@@ -32726,7 +32726,7 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<div expr2424></div><a expr2426 class="hidden-anker"></a>', [{
+    return template('<div expr28></div><a expr30 class="hidden-anker"></a>', [{
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'class',
@@ -32739,9 +32739,9 @@ var _default = {
       'evaluate': function (scope) {
         return !scope.props.data.isHidden;
       },
-      'redundantAttribute': 'expr2424',
-      'selector': '[expr2424]',
-      'template': template('<img expr2425 class="icon"/><div class="favorite">★</div>', [{
+      'redundantAttribute': 'expr28',
+      'selector': '[expr28]',
+      'template': template('<img expr29 class="icon"/><div class="favorite">★</div>', [{
         'expressions': [{
           'type': expressionTypes.ATTRIBUTE,
           'name': 'class',
@@ -32756,8 +32756,8 @@ var _default = {
           }
         }]
       }, {
-        'redundantAttribute': 'expr2425',
-        'selector': '[expr2425]',
+        'redundantAttribute': 'expr29',
+        'selector': '[expr29]',
         'expressions': [{
           'type': expressionTypes.ATTRIBUTE,
           'name': 'src',
@@ -32771,9 +32771,9 @@ var _default = {
       'evaluate': function (scope) {
         return !scope.props.data.isHidden;
       },
-      'redundantAttribute': 'expr2426',
-      'selector': '[expr2426]',
-      'template': template('<div expr2427 class="rank"><!----></div><div expr2428 class="name"><!----></div><div expr2429 class="point"><!----></div><div expr2430 class="team-rank"></div>', [{
+      'redundantAttribute': 'expr30',
+      'selector': '[expr30]',
+      'template': template('<div expr31 class="rank"><!----></div><div expr32 class="name"><!----></div><div expr33 class="point"><!----></div><div expr34 class="team-rank"></div>', [{
         'expressions': [{
           'type': expressionTypes.ATTRIBUTE,
           'name': 'href',
@@ -32782,8 +32782,8 @@ var _default = {
           }
         }]
       }, {
-        'redundantAttribute': 'expr2427',
-        'selector': '[expr2427]',
+        'redundantAttribute': 'expr31',
+        'selector': '[expr31]',
         'expressions': [{
           'type': expressionTypes.TEXT,
           'childNodeIndex': 0,
@@ -32792,8 +32792,8 @@ var _default = {
           }
         }]
       }, {
-        'redundantAttribute': 'expr2428',
-        'selector': '[expr2428]',
+        'redundantAttribute': 'expr32',
+        'selector': '[expr32]',
         'expressions': [{
           'type': expressionTypes.TEXT,
           'childNodeIndex': 0,
@@ -32802,8 +32802,8 @@ var _default = {
           }
         }]
       }, {
-        'redundantAttribute': 'expr2429',
-        'selector': '[expr2429]',
+        'redundantAttribute': 'expr33',
+        'selector': '[expr33]',
         'expressions': [{
           'type': expressionTypes.TEXT,
           'childNodeIndex': 0,
@@ -32816,8 +32816,8 @@ var _default = {
         'evaluate': function (scope) {
           return scope.props.data.team.id == -2;
         },
-        'redundantAttribute': 'expr2430',
-        'selector': '[expr2430]',
+        'redundantAttribute': 'expr34',
+        'selector': '[expr34]',
         'template': template('<!---->', [{
           'expressions': [{
             'type': expressionTypes.TEXT,
@@ -32951,7 +32951,7 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<loading expr2414></loading><div expr2415 class="cup-title "><!----></div><hr/><div class="search-box "><div class="inline-input "><i class="fas fa-search "></i><div expr2416 class="input " contenteditable></div></div></div><hr/><div expr2417 class="toggle-switch "></div><div expr2419 class="toggle-switch "></div><br/><div expr2421 class="board-datas"></div>', [{
+    return template('<loading expr9></loading><div expr10 class="cup-title "><!----></div><hr/><div class="search-box "><div class="inline-input "><i class="fas fa-search "></i><div expr11 class="input " contenteditable></div></div></div><hr/><div expr12 class="toggle-switch "></div><div expr14 class="toggle-switch "></div><br/><div expr16 class="board-datas"></div>', [{
       'type': bindingTypes.TAG,
       'getComponent': getComponent,
       'evaluate': function (scope) {
@@ -32965,11 +32965,11 @@ var _default = {
           return [scope.state.boards ? 'hidden' : '', ' '].join('');
         }
       }],
-      'redundantAttribute': 'expr2414',
-      'selector': '[expr2414]'
+      'redundantAttribute': 'expr9',
+      'selector': '[expr9]'
     }, {
-      'redundantAttribute': 'expr2415',
-      'selector': '[expr2415]',
+      'redundantAttribute': 'expr10',
+      'selector': '[expr10]',
       'expressions': [{
         'type': expressionTypes.TEXT,
         'childNodeIndex': 0,
@@ -32978,8 +32978,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr2416',
-      'selector': '[expr2416]',
+      'redundantAttribute': 'expr11',
+      'selector': '[expr11]',
       'expressions': [{
         'type': expressionTypes.EVENT,
         'name': 'onkeyup',
@@ -32992,9 +32992,9 @@ var _default = {
       'evaluate': function (scope) {
         return scope.state.boards;
       },
-      'redundantAttribute': 'expr2417',
-      'selector': '[expr2417]',
-      'template': template('<div expr2418></div>', [{
+      'redundantAttribute': 'expr12',
+      'selector': '[expr12]',
+      'template': template('<div expr13></div>', [{
         'type': bindingTypes.EACH,
         'getKey': null,
         'condition': null,
@@ -33025,8 +33025,8 @@ var _default = {
             }
           }]
         }]),
-        'redundantAttribute': 'expr2418',
-        'selector': '[expr2418]',
+        'redundantAttribute': 'expr13',
+        'selector': '[expr13]',
         'itemName': 'day',
         'indexName': 'i',
         'evaluate': function (scope) {
@@ -33038,9 +33038,9 @@ var _default = {
       'evaluate': function (scope) {
         return scope.state.boards;
       },
-      'redundantAttribute': 'expr2419',
-      'selector': '[expr2419]',
-      'template': template('<div expr2420></div>', [{
+      'redundantAttribute': 'expr14',
+      'selector': '[expr14]',
+      'template': template('<div expr15></div>', [{
         'type': bindingTypes.EACH,
         'getKey': null,
         'condition': null,
@@ -33071,8 +33071,8 @@ var _default = {
             }
           }]
         }]),
-        'redundantAttribute': 'expr2420',
-        'selector': '[expr2420]',
+        'redundantAttribute': 'expr15',
+        'selector': '[expr15]',
         'itemName': 'team',
         'indexName': 'idx',
         'evaluate': function (scope) {
@@ -33084,9 +33084,9 @@ var _default = {
       'evaluate': function (scope) {
         return scope.state.boards;
       },
-      'redundantAttribute': 'expr2421',
-      'selector': '[expr2421]',
-      'template': template('<ranker expr2422></ranker>', [{
+      'redundantAttribute': 'expr16',
+      'selector': '[expr16]',
+      'template': template('<ranker expr17></ranker>', [{
         'type': bindingTypes.EACH,
         'getKey': null,
         'condition': null,
@@ -33119,8 +33119,8 @@ var _default = {
             }
           }]
         }]),
-        'redundantAttribute': 'expr2422',
-        'selector': '[expr2422]',
+        'redundantAttribute': 'expr17',
+        'selector': '[expr17]',
         'itemName': 'i',
         'indexName': null,
         'evaluate': function (scope) {
@@ -33154,9 +33154,9 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<div class="box gray"><a href="#"><img src="img/logo.png" class="logo"/></a></div><div class="box"><br/><a expr2397><button expr2398 id="nowCupButton" class="button"><i class="fas fa-running"></i>\r\n            現在開催中の魔導杯へ</button><br/></a><br/></div><div class="box gray"><h3><i class="fas fa-trophy"></i> 魔導杯一覧</h3><div id="cupList"><a expr2399 class="cup"></a></div><br/></div>', [{
-      'redundantAttribute': 'expr2397',
-      'selector': '[expr2397]',
+    return template('<div class="box gray"><a href="#"><img src="img/logo.png" class="logo"/></a></div><div class="box"><br/><a expr5><button expr6 id="nowCupButton" class="button"><i class="fas fa-running"></i>\r\n            現在開催中の魔導杯へ</button><br/></a><br/></div><div class="box gray"><h3><i class="fas fa-trophy"></i> 魔導杯一覧</h3><div id="cupList"><a expr7 class="cup"></a></div><br/></div>', [{
+      'redundantAttribute': 'expr5',
+      'selector': '[expr5]',
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'href',
@@ -33165,8 +33165,8 @@ var _default = {
         }
       }]
     }, {
-      'redundantAttribute': 'expr2398',
-      'selector': '[expr2398]',
+      'redundantAttribute': 'expr6',
+      'selector': '[expr6]',
       'expressions': [{
         'type': expressionTypes.ATTRIBUTE,
         'name': 'disabled',
@@ -33178,7 +33178,7 @@ var _default = {
       'type': bindingTypes.EACH,
       'getKey': null,
       'condition': null,
-      'template': template('<div expr2400><!----></div>', [{
+      'template': template('<div expr8><!----></div>', [{
         'expressions': [{
           'type': expressionTypes.ATTRIBUTE,
           'name': 'href',
@@ -33187,8 +33187,8 @@ var _default = {
           }
         }]
       }, {
-        'redundantAttribute': 'expr2400',
-        'selector': '[expr2400]',
+        'redundantAttribute': 'expr8',
+        'selector': '[expr8]',
         'expressions': [{
           'type': expressionTypes.TEXT,
           'childNodeIndex': 0,
@@ -33197,8 +33197,8 @@ var _default = {
           }
         }]
       }]),
-      'redundantAttribute': 'expr2399',
-      'selector': '[expr2399]',
+      'redundantAttribute': 'expr7',
+      'selector': '[expr7]',
       'itemName': 'cup',
       'indexName': null,
       'evaluate': function (scope) {
@@ -33366,7 +33366,7 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<loading expr2404></loading><div expr2405 class="view"></div>', [{
+    return template('<loading expr18></loading><div expr19 class="view"></div>', [{
       'type': bindingTypes.TAG,
       'getComponent': getComponent,
       'evaluate': function (scope) {
@@ -33380,18 +33380,18 @@ var _default = {
           return [scope.state.timeDatas ? 'hidden' : '', ' '].join('');
         }
       }],
-      'redundantAttribute': 'expr2404',
-      'selector': '[expr2404]'
+      'redundantAttribute': 'expr18',
+      'selector': '[expr18]'
     }, {
       'type': bindingTypes.IF,
       'evaluate': function (scope) {
         return scope.state.timeDatas;
       },
-      'redundantAttribute': 'expr2405',
-      'selector': '[expr2405]',
-      'template': template('<div class="title-data"><img expr2406 class="icon" alt/><div expr2407 class="name"><!----></div></div><div expr2408 class="right"><!----></div><hr/><div class="toggle-switch "><div expr2409></div></div><br/><usergraf expr2410 class="width-full"></usergraf><div class="width-full" style="text-align: center"><h4 expr2411><!----></h4><h4 expr2412><!----></h4></div><speedmeter expr2413></speedmeter>', [{
-        'redundantAttribute': 'expr2406',
-        'selector': '[expr2406]',
+      'redundantAttribute': 'expr19',
+      'selector': '[expr19]',
+      'template': template('<div class="title-data"><img expr20 class="icon" alt/><div expr21 class="name"><!----></div></div><div expr22 class="right"><!----></div><hr/><div class="toggle-switch "><div expr23></div></div><br/><usergraf expr24 class="width-full"></usergraf><div class="width-full" style="text-align: center"><h4 expr25><!----></h4><h4 expr26><!----></h4></div><speedmeter expr27></speedmeter>', [{
+        'redundantAttribute': 'expr20',
+        'selector': '[expr20]',
         'expressions': [{
           'type': expressionTypes.ATTRIBUTE,
           'name': 'src',
@@ -33400,8 +33400,8 @@ var _default = {
           }
         }]
       }, {
-        'redundantAttribute': 'expr2407',
-        'selector': '[expr2407]',
+        'redundantAttribute': 'expr21',
+        'selector': '[expr21]',
         'expressions': [{
           'type': expressionTypes.TEXT,
           'childNodeIndex': 0,
@@ -33410,8 +33410,8 @@ var _default = {
           }
         }]
       }, {
-        'redundantAttribute': 'expr2408',
-        'selector': '[expr2408]',
+        'redundantAttribute': 'expr22',
+        'selector': '[expr22]',
         'expressions': [{
           'type': expressionTypes.TEXT,
           'childNodeIndex': 0,
@@ -33450,8 +33450,8 @@ var _default = {
             }
           }]
         }]),
-        'redundantAttribute': 'expr2409',
-        'selector': '[expr2409]',
+        'redundantAttribute': 'expr23',
+        'selector': '[expr23]',
         'itemName': 'data',
         'indexName': 'day',
         'evaluate': function (scope) {
@@ -33483,11 +33483,11 @@ var _default = {
             return 'width-full';
           }
         }],
-        'redundantAttribute': 'expr2410',
-        'selector': '[expr2410]'
+        'redundantAttribute': 'expr24',
+        'selector': '[expr24]'
       }, {
-        'redundantAttribute': 'expr2411',
-        'selector': '[expr2411]',
+        'redundantAttribute': 'expr25',
+        'selector': '[expr25]',
         'expressions': [{
           'type': expressionTypes.TEXT,
           'childNodeIndex': 0,
@@ -33496,8 +33496,8 @@ var _default = {
           }
         }]
       }, {
-        'redundantAttribute': 'expr2412',
-        'selector': '[expr2412]',
+        'redundantAttribute': 'expr26',
+        'selector': '[expr26]',
         'expressions': [{
           'type': expressionTypes.TEXT,
           'childNodeIndex': 0,
@@ -33542,8 +33542,8 @@ var _default = {
             }
           }]
         }]),
-        'redundantAttribute': 'expr2413',
-        'selector': '[expr2413]',
+        'redundantAttribute': 'expr27',
+        'selector': '[expr27]',
         'itemName': 'data',
         'indexName': 'day',
         'evaluate': function (scope) {
@@ -33598,9 +33598,9 @@ var _default = {
 
   },
   'template': function (template, expressionTypes, bindingTypes, getComponent) {
-    return template('<div expr2423 class="title"><!----></div><div id="meter"></div>', [{
-      'redundantAttribute': 'expr2423',
-      'selector': '[expr2423]',
+    return template('<div expr35 class="title"><!----></div><div id="meter"></div>', [{
+      'redundantAttribute': 'expr35',
+      'selector': '[expr35]',
       'expressions': [{
         'type': expressionTypes.TEXT,
         'childNodeIndex': 0,
