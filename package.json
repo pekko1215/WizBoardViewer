@@ -26,6 +26,7 @@
     "vinyl-source-stream": "^2.0.0"
   },
   "dependencies": {
-    "c3": "^0.7.2"
+    "c3": "^0.7.2",
+    "riot": "^4.3.5"
   }
 }

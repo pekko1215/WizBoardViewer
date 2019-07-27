@@ -17,7 +17,7 @@
             <h4>最高時速 : {state.currentPoints.maxSpeed.speed} Pt/hours ({state.currentPoints.maxSpeed.date.toLocaleTimeString().split(':').slice(0,2).join(':')})</h4>
             <h4>平均時速 : {state.currentPoints.average.toFixed(1)} Pt/hours</h4>
         </div>
-        <speedmeter each={(data,day) in state.dayPoints} title={data.name} max={data.maxSpeed.speed} v={data.average} class="{day === 0 ? 'width-full' : 'width-quarter'}"></speedmeter>
+        <speedmeter each={(data,day) in state.dayPoints} if={data.maxSpeed !==undefined} title={data.name} max={data.maxSpeed.speed} v={data.average} class="{day === 0 ? 'width-full' : 'width-quarter'}"></speedmeter>
     </div>
     <style>
          :host {
