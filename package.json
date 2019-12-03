@@ -17,17 +17,17 @@
     },
     "homepage": "https://github.com/pekko1215/WizBoardViewer#readme",
     "devDependencies": {
-        "@babel/preset-env": "^7.4.5",
+        "@babel/preset-env": "^7.7.4",
         "babelify": "^10.0.0",
-        "browserify": "^16.2.3",
+        "browserify": "^16.5.0",
         "gulp-riot": "^1.1.5",
-        "riot": "^4.3.1",
+        "riot": "^4.7.0",
         "riotify": "^4.0.0",
         "vinyl-source-stream": "^2.0.0"
     },
     "dependencies": {
-        "c3": "^0.7.2",
+        "c3": "^0.7.11",
         "riot": "^4.3.5",
-        "lodash": ">=4.17.13"
+        "lodash": ">=4.17.15"
     }
 }
