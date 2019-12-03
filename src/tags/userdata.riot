@@ -136,7 +136,7 @@
                     let blankCount = 0;
 
                     let time = new Date(cup.first);
-
+                    console.log(window.data = [...data])
                     time.setMinutes(55);
                     let arr = [];
                     for (let i = 0; i < 72; i++) {
@@ -160,6 +160,7 @@
                         timeData.daily = timeData.ranks.find((r, i) => i !== 0 && r);
                         let pt = null;
                         let speed = 0;
+                        let noSpeed = false;
                         blankCount++;
                         if ([8, 32, 56].includes(i)) prevDailyPoint = 0;
 
@@ -183,6 +184,9 @@
 
                         timeData.pt = sumPoint;
                         timeData.speed = speed / blankCount;
+                        if (timeData.speed > 300000) noSpeed = true;
+                        if (noSpeed) timeData.speed = null;
+                        timeData.noSpeed = noSpeed;
                         blankCount = 0;
                         return timeData;
                     });
@@ -202,6 +206,7 @@
                         teams,
                         img
                     }
+                    console.log(timeDatas)
                     this.state.dayPoints = [null, 0, 1, 2, 3].map((day, i) => {
                         let data = {
                             name: ['総合', '1日目', '2日目', '3日目', '4日目'][i],
@@ -210,6 +215,7 @@
                         let p = -1;
                         let sum = 0;
                         data.points.forEach(d => {
+                            console.log(d)
                             if (d.speed && d.speed > p) {
                                 p = d.speed;
                                 data.maxSpeed = d;
@@ -217,6 +223,7 @@
                             sum += d.speed ? d.speed : 0;
                         })
                         data.average = sum / data.points.length;
+                        // console.log(data)
                         return data;
                     })
                     this.state.currentPoints = this.state.dayPoints[0];
