@@ -1,32 +1,33 @@
 {
-  "name": "wizboardviewer",
-  "version": "1.0.0",
-  "description": "",
-  "main": "bundle.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pekko1215/WizBoardViewer.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/pekko1215/WizBoardViewer/issues"
-  },
-  "homepage": "https://github.com/pekko1215/WizBoardViewer#readme",
-  "devDependencies": {
-    "@babel/preset-env": "^7.4.5",
-    "babelify": "^10.0.0",
-    "browserify": "^16.2.3",
-    "gulp-riot": "^1.1.5",
-    "riot": "^4.3.1",
-    "riotify": "^4.0.0",
-    "vinyl-source-stream": "^2.0.0"
-  },
-  "dependencies": {
-    "c3": "^0.7.2",
-    "riot": "^4.3.5"
-  }
+    "name": "wizboardviewer",
+    "version": "1.0.0",
+    "description": "",
+    "main": "bundle.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/pekko1215/WizBoardViewer.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/pekko1215/WizBoardViewer/issues"
+    },
+    "homepage": "https://github.com/pekko1215/WizBoardViewer#readme",
+    "devDependencies": {
+        "@babel/preset-env": "^7.4.5",
+        "babelify": "^10.0.0",
+        "browserify": "^16.2.3",
+        "gulp-riot": "^1.1.5",
+        "riot": "^4.3.1",
+        "riotify": "^4.0.0",
+        "vinyl-source-stream": "^2.0.0"
+    },
+    "dependencies": {
+        "c3": "^0.7.2",
+        "riot": "^4.3.5",
+        "lodash": ">=4.17.13"
+    }
 }
